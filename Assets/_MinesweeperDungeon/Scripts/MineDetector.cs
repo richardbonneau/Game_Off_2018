@@ -36,28 +36,4 @@ public class MineDetector : MonoBehaviour {
             colMineDetectorParentScript.TriggerCheckAllCubes();
         }
     }
-    // public void CheckCube() {
-    //     
-    //         print("interacting with a block");
-    //         colMineDetectorParentScript = collidedBlock.transform.parent.GetChild(1).gameObject.GetComponent<ParentOfMineDetectors>();
-    //         if (colMineDetectorParentScript.numberOfMines == 0) {
-    //             print("sending a block to gamemanager " + collidedBlock.gameObject);
-
-    //             gameManager.blocksToDestroy.Add(collidedBlock.transform.parent.gameObject);
-    //             gameManager.DestroyCubes();
-
-
-    //CULPRIT!
-    //     //
-    // }
-
-    //             // colMineDetectorParentScript = collidedBlock.transform.parent.GetChild(1).gameObject.GetComponent<ParentOfMineDetectors>();
-    //             // if (colMineDetectorParentScript.numberOfMines == 0) {
-    //             //     print("destroying a block");
-    //             //     collidedBlock.gameObject.SetActive(false);
-
-    //             //     colMineDetectorParentScript.TriggerCheckAllCubes();
-    //             // }
-    //         }
-    //     }
 }

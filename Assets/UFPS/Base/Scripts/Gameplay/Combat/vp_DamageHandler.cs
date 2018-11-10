@@ -45,6 +45,7 @@ public class vp_DamageHandler : MonoBehaviour {
     // impact damage
     public float ImpactDamageThreshold = 10;
     public float ImpactDamageMultiplier = 0.0f;
+    public GameObject mineExplosionPrefab;
 
     // NOTE: these variables have been made obsolete and are now found in
     // the vp_Respawner component. there is temporary logic in this class
@@ -249,6 +250,12 @@ public class vp_DamageHandler : MonoBehaviour {
             if (this.gameObject.tag == "Block") {
                 ParentOfMineDetectors mineDetectorParentScript = this.transform.parent.GetChild(1).gameObject.GetComponent<ParentOfMineDetectors>();
                 mineDetectorParentScript.TriggerCheckAllCubes();
+            } else if (this.gameObject.tag == "Mine") {
+                Instantiate(mineExplosionPrefab, this.transform.position, Quaternion.identity);
+                // print("source: " + m_Source);
+                // m_Source.SendMessage("Damage", 1.0f, SendMessageOptions.DontRequireReceiver);
+
+                print("we hit a mine, yes");
             } else {
                 // send the 'Die' message, to be picked up by vp_DamageHandlers and vp_Respawners
                 if (m_InstaKill)

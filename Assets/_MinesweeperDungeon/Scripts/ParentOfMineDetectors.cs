@@ -6,11 +6,10 @@ public class ParentOfMineDetectors : MonoBehaviour {
     public int mineChecksDone = 0;
     public int numberOfMines = 0;
     public GameObject[] mineDetectors;
-
     public Texture[] numberedTextures;
-    public Texture blue;
-    bool hasbeenTriggered = false;
     GameManager gameManager;
+    bool hasbeenTriggered = false;
+
 
     bool cubeCheck = false;
     void Start() {
