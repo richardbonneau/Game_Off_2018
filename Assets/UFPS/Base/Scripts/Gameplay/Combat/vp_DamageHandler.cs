@@ -249,7 +249,6 @@ public class vp_DamageHandler : MonoBehaviour {
             if (this.gameObject.tag == "Block") {
                 ParentOfMineDetectors mineDetectorParentScript = this.transform.parent.GetChild(1).gameObject.GetComponent<ParentOfMineDetectors>();
                 mineDetectorParentScript.TriggerCheckAllCubes();
-                this.gameObject.SetActive(false);
             } else {
                 // send the 'Die' message, to be picked up by vp_DamageHandlers and vp_Respawners
                 if (m_InstaKill)

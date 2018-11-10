@@ -6,7 +6,7 @@ using System.Linq;
 public class GameManager : MonoBehaviour {
 
     public List<GameObject> blocksToDestroy = new List<GameObject>();
-    public bool boolSwitch = false;
+    public List<GameObject> blocksToIgnore = new List<GameObject>();
 
     // Use this for initialization
     void Start() {
@@ -18,12 +18,16 @@ public class GameManager : MonoBehaviour {
 
     }
     public void DestroyCubes() {
-
-        blocksToDestroy = blocksToDestroy.Distinct().ToList();
-        foreach (var i in blocksToDestroy) {
-            i.transform.GetChild(0).gameObject.SetActive(false);
-            i.transform.GetChild(1).gameObject.GetComponent<ParentOfMineDetectors>().TriggerCheckAllCubes();
+        foreach (var i in blocksToIgnore) {
+            blocksToDestroy.Remove(i);
         }
+        blocksToDestroy = blocksToDestroy.Distinct().ToList();
+        foreach (var j in blocksToDestroy) {
+            j.transform.GetChild(0).gameObject.SetActive(false);
+            //j.transform.GetChild(1).gameObject.GetComponent<ParentOfMineDetectors>().TriggerCheckAllCubes();
+        }
+        // blocksToDestroy.Clear();
+        // blocksToIgnore.Clear();
     }
 
 }

@@ -8,40 +8,35 @@ public class ParentOfMineDetectors : MonoBehaviour {
     public GameObject[] mineDetectors;
 
     public Texture[] numberedTextures;
-
+    public Texture blue;
+    bool hasbeenTriggered = false;
+    GameManager gameManager;
 
     bool cubeCheck = false;
     void Start() {
-        foreach (var i in mineDetectors) {
-        }
+        gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
     }
     void Update() {
         if (cubeCheck == false) {
             cubeCheck = true;
-            this.transform.parent.GetChild(0).gameObject.GetComponent<Renderer>().material.mainTexture = numberedTextures[numberOfMines];
+            this.transform.parent.GetChild(2).gameObject.GetComponent<Renderer>().material.mainTexture = numberedTextures[numberOfMines];
         }
-        // else if (mineChecksDone > 0 && cubeCheck == false) {
-        //     cubeCheck = true;
-        //     if (numberOfMines == 0) {
-        //         this.transform.parent.GetChild(0).gameObject.SetActive(false);
-        //         TriggerCheckAllCubes();
-        //     }
-        // }
+
     }
     public void TriggerCheckAllCubes() {
-        print("in triggercheckAll");
+        if (!hasbeenTriggered) {
+            hasbeenTriggered = true;
+            GameObject parentCube = this.transform.parent.GetChild(0).gameObject;
+            if (numberOfMines == 0) {
+                gameManager.blocksToIgnore.Add(parentCube);
+                parentCube.SetActive(false);
 
-        // mineDetectors[0].GetComponent<MineDetector>().CheckCube();
-        // mineDetectors[1].GetComponent<MineDetector>().CheckCube();
-        // mineDetectors[2].GetComponent<MineDetector>().CheckCube();
-        // mineDetectors[3].GetComponent<MineDetector>().CheckCube();
-        // mineDetectors[4].GetComponent<MineDetector>().CheckCube();
-        // mineDetectors[6].GetComponent<MineDetector>().CheckCube();
-        // mineDetectors[7].GetComponent<MineDetector>().CheckCube();
-        foreach (var i in mineDetectors) {
-            i.GetComponent<MineDetector>().CheckCube();
+                foreach (var i in mineDetectors) {
+                    i.GetComponent<MineDetector>().DeactivateSurroundingCubes();
+                }
+
+            } else parentCube.SetActive(false);
         }
-
     }
 }
 

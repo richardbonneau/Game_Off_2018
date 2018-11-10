@@ -6,7 +6,7 @@ public class MineDetector : MonoBehaviour {
     public bool mineCheckDone = false;
     public bool isCollidingWithMine = false;
 
-    Collider collidedBlock;
+    public Collider collidedBlock;
     ParentOfMineDetectors thisParentMineDetectorsScript;
     ParentOfMineDetectors colMineDetectorParentScript;
     GameObject colParentMineDetectorObject;
@@ -17,7 +17,6 @@ public class MineDetector : MonoBehaviour {
         gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
     }
     void OnTriggerEnter(Collider col) {
-
         if (col.gameObject.tag == "Block") {
             collidedBlock = col;
             thisParentMineDetectorsScript.mineChecksDone += 1;
@@ -27,30 +26,38 @@ public class MineDetector : MonoBehaviour {
             thisParentMineDetectorsScript.mineChecksDone += 1;
             mineCheckDone = true;
         }
+
     }
-
-    public void CheckCube() {
+    public void DeactivateSurroundingCubes() {
         if (collidedBlock != null) {
-            print("interacting with a block");
+            gameManager.blocksToDestroy.Add(collidedBlock.transform.parent.gameObject);
+            gameManager.DestroyCubes();
             colMineDetectorParentScript = collidedBlock.transform.parent.GetChild(1).gameObject.GetComponent<ParentOfMineDetectors>();
-            if (colMineDetectorParentScript.numberOfMines == 0) {
-                print("sending a block to gamemanager " + collidedBlock.gameObject);
-
-                gameManager.blocksToDestroy.Add(collidedBlock.transform.parent.gameObject);
-                gameManager.DestroyCubes();
-
-
-                //CULPRIT!
-                //colMineDetectorParentScript.TriggerCheckAllCubes();
-            }
-
-            // colMineDetectorParentScript = collidedBlock.transform.parent.GetChild(1).gameObject.GetComponent<ParentOfMineDetectors>();
-            // if (colMineDetectorParentScript.numberOfMines == 0) {
-            //     print("destroying a block");
-            //     collidedBlock.gameObject.SetActive(false);
-
-            //     colMineDetectorParentScript.TriggerCheckAllCubes();
-            // }
+            colMineDetectorParentScript.TriggerCheckAllCubes();
         }
     }
+    // public void CheckCube() {
+    //     
+    //         print("interacting with a block");
+    //         colMineDetectorParentScript = collidedBlock.transform.parent.GetChild(1).gameObject.GetComponent<ParentOfMineDetectors>();
+    //         if (colMineDetectorParentScript.numberOfMines == 0) {
+    //             print("sending a block to gamemanager " + collidedBlock.gameObject);
+
+    //             gameManager.blocksToDestroy.Add(collidedBlock.transform.parent.gameObject);
+    //             gameManager.DestroyCubes();
+
+
+    //CULPRIT!
+    //     //
+    // }
+
+    //             // colMineDetectorParentScript = collidedBlock.transform.parent.GetChild(1).gameObject.GetComponent<ParentOfMineDetectors>();
+    //             // if (colMineDetectorParentScript.numberOfMines == 0) {
+    //             //     print("destroying a block");
+    //             //     collidedBlock.gameObject.SetActive(false);
+
+    //             //     colMineDetectorParentScript.TriggerCheckAllCubes();
+    //             // }
+    //         }
+    //     }
 }
