@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/rubik/Documents/Game Off 2018/Builds/0.06/Game Off 2018.exe
+C:/Users/rubik/Documents/Game Off 2018/Builds/0.1/Game Off 2018.exe
 SceneListBegin?
 Assets/Scenes/SampleScene.unity
 SceneListEnd?
@@ -152,7 +152,7 @@ da6593ddfd3aff488e8a8928235d52a9 Assembly-CSharp.dll:.vp_HealthPowerup
 0a006f3734181ba8b26758f0866152c0 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 6f1ff50e512153a0acfab28b9024010c Assembly-CSharp.dll:.vp_FPBodyAnimator
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.vp_FPEarthquake
-ef70e22873e08dff504b621ebd9cdeb5 Assembly-CSharp.dll:.vp_PlayerDamageHandler
+19d71d5410848d9057cfd7ff22646459 Assembly-CSharp.dll:.vp_PlayerDamageHandler
 ccdc4836df2e335b1bb8e89095451a5f Assembly-CSharp.dll:.vp_ImpactEvent
 847c8545112be207170a68122c173b40 Assembly-CSharp.dll:.vp_UnitBankType
 64b063a9ba8e503aa6fe2077745087af Assembly-CSharp.dll:.vp_ItemType
@@ -172,7 +172,7 @@ fd405851baf572043bad472255b61401 Assembly-CSharp.dll:.vp_DoomsDayDevice
 490c2b533b20a6a6423c0644b134f274 Assembly-CSharp.dll:.vp_BodyAnimator
 ed3ed9969d3004eda2e62cdb8d8f680b Assembly-CSharp.dll:.vp_Switch
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.vp_MuzzleFlash
-d8509334ec17a7bb5c502cd2b8551271 Assembly-CSharp.dll:.MineDetector
+4cdfa3b51a64abd93faa645b8c732d0e Assembly-CSharp.dll:.MineDetector
 d0c04caf4005e7d67f1733de3d5b1f2a Assembly-CSharp.dll:.vp_VRWeaponManager
 62e41334a050411e0fa6c68d8968fe42 Assembly-CSharp.dll:.vp_Inventory
 f74adc20773b59868bb0d6c39f4358a8 Assembly-CSharp.dll:.vp_SurfaceEffect
@@ -191,7 +191,7 @@ c8badc5877e2334fa0302da77700ebbb Assembly-CSharp.dll:.vp_SimpleFiring
 c995a8358a70bf052a3e4bf686a1a05b Assembly-CSharp.dll:.vp_WeaponReloader
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.vp_Timer
 58debb61cf37eeba856f54305323b4f0 Assembly-CSharp.dll:.vp_Debris
-4827304e6a6c822aad8f28bdab6fb352 Assembly-CSharp.dll:.vp_DamageHandler
+8a95d6f9308b71ce692cf868a4c94e97 Assembly-CSharp.dll:.vp_DamageHandler
 64fb53c57d5d09ce6ea36a3ca6f77ab1 Assembly-CSharp.dll:.vp_SurfaceIdentifier
 6d55b2d5ce3b4370393ac646dd1abc96 Assembly-CSharp.dll:.vp_Spin
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:ProGrids.pg_IgnoreSnap
@@ -242,7 +242,7 @@ e53cc67d84060d628c7f03fc725766d8 Unity.TextMeshPro.dll:TMPro.TMP_FontAsset
 392c5b921098bd4c139d9146d0efa6d7 Unity.TextMeshPro.dll:TMPro.TMP_Settings
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.vp_Billboard
 43075b3dec3bdf9b2fa486679b4e9ef8 Assembly-CSharp.dll:.vp_SimpleAITurret
-e6a4f35c1e381c960b48b01b5b90278e Assembly-CSharp.dll:.vp_FPPlayerDamageHandler
+3365129bbe7c90532c1ec6cc2c8129a6 Assembly-CSharp.dll:.vp_FPPlayerDamageHandler
 486cd95c82d8305219c352c06b776e1f UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 e033f131358cea5a0eabf9561e781deb UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
 9d863b523b577f5c3d915351a74cd338 UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.RemoteTestResultSender
@@ -260,7 +260,6 @@ e86fafc3870542d1a9dd9e6a58bbdc58 Assembly-CSharp.dll:.vp_VRCameraManager
 9547bfda75c37d2d7038e08f9ceb93ca Assembly-CSharp.dll:.HighlightNearestFace
 fc1c105da08abcc08c9af08794ad6e65 Assembly-CSharp.dll:.vp_FPWeaponMeleeAttack
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.vp_ParticleFXPooler
-683e4fe470767ece561f3d3b8abef382 Assembly-CSharp.dll:.Outline
 d75dc834c5dec688db75a55a1724c90f UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
 486cd95c82d8305219c352c06b776e1f UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInput
 e1ea12ca952c81d81a9a21fdf34446ed UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
@@ -282,7 +281,7 @@ afcff10a761abc9a756820d624adb273 Assembly-CSharp.dll:.vp_Component
 aa6b41d8da89b53387868813d6424c09 Assembly-CSharp.dll:.vp_SimpleCrosshair
 f7be7ce34bdb5f7c6d663c1fb52f17ce Assembly-CSharp.dll:.vp_RandomSpawner
 515f98a7c262a21afc62228287bcd2b5 Assembly-CSharp.dll:.vp_SimpleHUD
-486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.GameManager
+3fbcceb7f5dceccf8232eed5ca5f0dfb Assembly-CSharp.dll:.GameManager
 e04611b8715e6833d2bd7010fc6be10b Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 96cab4cdb66ef1e2919881083bcf1bab Assembly-CSharp.dll:.vp_Bullet
 878a30c1306321537d6162114af5f31f Assembly-CSharp.dll:.vp_Grab
