@@ -247,15 +247,13 @@ public class vp_DamageHandler : MonoBehaviour {
 
         if (CurrentHealth <= 0.0f) {
             //  RICHARD:
+            print("damage type " + vp_DamageInfo.DamageType.Bullet);
             if (this.gameObject.tag == "Block") {
                 ParentOfMineDetectors mineDetectorParentScript = this.transform.parent.GetChild(1).gameObject.GetComponent<ParentOfMineDetectors>();
                 mineDetectorParentScript.TriggerCheckAllCubes();
             } else if (this.gameObject.tag == "Mine") {
                 Instantiate(mineExplosionPrefab, this.transform.position, Quaternion.identity);
-                // print("source: " + m_Source);
-                // m_Source.SendMessage("Damage", 1.0f, SendMessageOptions.DontRequireReceiver);
 
-                print("we hit a mine, yes");
             } else {
                 // send the 'Die' message, to be picked up by vp_DamageHandlers and vp_Respawners
                 if (m_InstaKill)

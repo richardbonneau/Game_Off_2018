@@ -27,7 +27,7 @@ public class ParentOfMineDetectors : MonoBehaviour {
             hasbeenTriggered = true;
             GameObject parentCube = this.transform.parent.GetChild(0).gameObject;
             if (numberOfMines == 0) {
-                gameManager.blocksToIgnore.Add(parentCube);
+                this.transform.parent.GetChild(2).gameObject.SetActive(false);
                 parentCube.SetActive(false);
 
                 foreach (var i in mineDetectors) {

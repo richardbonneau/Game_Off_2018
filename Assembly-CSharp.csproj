@@ -71,7 +71,6 @@
      <Compile Include="Assets\ProCore\ProGrids\Classes\pg_SceneMeshRender.cs" />
      <Compile Include="Assets\ProCore\ProGrids\Classes\pg_Util.cs" />
      <Compile Include="Assets\ProCore\ProGrids\MonoBehaviour\pg_IgnoreSnap.cs" />
-     <Compile Include="Assets\QuickOutline\Scripts\Outline.cs" />
      <Compile Include="Assets\UFPS\Base\Scripts\Core\Attributes\vp_FloatFieldAttribute.cs" />
      <Compile Include="Assets\UFPS\Base\Scripts\Core\Attributes\vp_HelpBoxAttribute.cs" />
      <Compile Include="Assets\UFPS\Base\Scripts\Core\Attributes\vp_ItemAmountAttribute.cs" />
@@ -260,7 +259,6 @@
      <None Include="Assets\UFPS\Base\Scripts\Gameplay\Player\Local\OldInventory\_OLD_INVENTORY_README_.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MouseRawUnityCamera.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\CowboyCamera.txt" />
-     <None Include="Assets\QuickOutline\Resources\Shaders\OutlineFill.shader" />
      <None Include="Assets\UFPS\Base\Content\Art\Body\Animations\_README_Animations.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\SystemOFFWeapon.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MeleeWeaponPullLeft.txt" />
@@ -294,7 +292,6 @@
      <None Include="Assets\UFPS\VR\Content\Presets\VRCameraDead.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Shooter\ShooterRevolverZoom.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Weapon\WeaponRevolverReload.txt" />
-     <None Include="Assets\QuickOutline\Readme.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MouseSmoothingCamera.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Controller\ControllerRun.txt" />
      <None Include="Assets\UFPS\VR\Content\Presets\VRMaceDefault.txt" />
@@ -429,7 +426,6 @@
      <None Include="Assets\UFPS\Base\Content\Levels\SkyCity\CustomShaders\Scroll_Emissive.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MechInput.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MeleeAttackToLeft.txt" />
-     <None Include="Assets\QuickOutline\Resources\Shaders\OutlineMask.shader" />
      <None Include="Assets\ProCore\ProBuilder\Shader\pb_NormalPreview.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\TurretCamera.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\CowboyWeapon.txt" />
