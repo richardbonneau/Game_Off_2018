@@ -18,7 +18,8 @@ public class ParentOfMineDetectors : MonoBehaviour {
     void Update() {
         if (cubeCheck == false) {
             cubeCheck = true;
-            this.transform.parent.GetChild(2).gameObject.GetComponent<Renderer>().material.mainTexture = numberedTextures[numberOfMines];
+            this.transform.parent.GetChild(2).GetChild(numberOfMines - 1).gameObject.SetActive(true);
+
         }
 
     }

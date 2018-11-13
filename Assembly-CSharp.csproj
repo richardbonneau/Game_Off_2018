@@ -56,8 +56,15 @@
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\BlockDestroyer.cs" />
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\BlockScript.cs" />
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\GameManager.cs" />
+     <Compile Include="Assets\_MinesweeperDungeon\Scripts\HologramCube.cs" />
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\MineDetector.cs" />
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\ParentOfMineDetectors.cs" />
+     <Compile Include="Assets\MK\MKXRayFree\Demo\Code\AutoEnableObjects.cs" />
+     <Compile Include="Assets\MK\MKXRayFree\Demo\Code\InfoTextDisable.cs" />
+     <Compile Include="Assets\MK\MKXRayFree\Demo\Code\MKXRayCopyPropertiesRuntime.cs" />
+     <Compile Include="Assets\MK\MKXRayFree\Demo\Code\MKXRayDemoControl.cs" />
+     <Compile Include="Assets\MK\MKXRayFree\Demo\Code\MKXRayDemoMouseOrbitImproved.cs" />
+     <Compile Include="Assets\MK\MKXRayFree\MKXRayFreeMaterialHelper.cs" />
      <Compile Include="Assets\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
      <Compile Include="Assets\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
      <Compile Include="Assets\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
@@ -576,6 +583,7 @@
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\FootFX\FootFXFixedTimeRun.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\WeaponsHD\Pistol01\WeaponPistol01Default.txt" />
      <None Include="Assets\RetroAesthetics\Shaders\RetroGridGenerative.shader" />
+     <None Include="Assets\MK\MKXRayFree\Shader\MKXRayFree.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\WeaponsHD\AssaultRifle01\WeaponAssaultRifle01Default.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\FootFX\FootFXFixedTimeCrouch.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\WeaponsHD\Knife01\KnifeAttackToDownLeft.txt" />

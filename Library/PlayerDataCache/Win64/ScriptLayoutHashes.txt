@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/rubik/Documents/Game Off 2018/Builds/0.1/Game Off 2018.exe
+C:/Users/rubik/Documents/Game Off 2018/Builds/0.5/Game Off 2018.exe
 SceneListBegin?
 Assets/Scenes/SampleScene.unity
 SceneListEnd?
@@ -8,6 +8,7 @@ SceneListEnd?
 c16f819ab660a4013946bc58acb77a86 Assembly-CSharp.dll:.vp_ItemPickup
 b1da3e8122b0e87e997bfec9bf922833 Assembly-CSharp.dll:.vp_SurfaceManager
 8603e9c020aa4ce6a684173b5592f548 Assembly-CSharp.dll:.vp_Regenerator
+e8cda3adf013fdf5599913e4853a64a5 Assembly-CSharp.dll:MK.XRay.AutoEnableObjects
 c422dd62785a6d0afa870fbd111886ce Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
 8893fbd47e2d369e21ba97663a090a6d Assembly-CSharp.dll:.vp_FPWeapon
 f19a6573716b7bd65792f07737fb0609 Assembly-CSharp.dll:.vp_PlayerItemDropper
@@ -31,9 +32,11 @@ f2bbac4d4fb694d5aea46ae4b7f93bba Assembly-CSharp.dll:.vp_PlatformSwitch
 8936f21db62d7854cee751d978a10ab4 Assembly-CSharp.dll:.vp_AngleBob
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.vp_FPSDemoPlaceHolderMessenger
 16c8afe9e8618cdb355f10c402a976b8 Assembly-CSharp.dll:.vp_FPSDemo3
+7af82934de8cf5c221d2d73ff4e7d570 Assembly-CSharp.dll:MK.XRay.MKXRayDemoControl
 f6637497451c9a030c421de4a1ad5cdb Unity.TextMeshPro.dll:TMPro.TMP_ScrollbarEventHandler
 6863a01004bda1f1e1998d84da5d2246 Assembly-CSharp.dll:.vp_Input
 b14b4630cc47b6e9ea8a644551a6a8cc Unity.TextMeshPro.dll:TMPro.TMP_Text
+ea1e4d6c21b0413292416f65fe4587aa Assembly-CSharp-firstpass.dll:UnityStandardAssets.Vehicles.Car.SkidTrail
 ed0e6afa52bcc9e703a55f861fe982ae Assembly-CSharp.dll:.ExtrudeRandomEdges
 131dd0321b8a916229a9dba422db22d9 Assembly-CSharp.dll:.vp_Respawner
 f5c76dd1f5999f5d7da444fd8b63b90f Assembly-CSharp.dll:.vp_StatePowerup
@@ -107,6 +110,7 @@ e90403eeda069970e0b9de1533de13a6 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 2d58ca16854b99daea8c45e9c0f367b7 UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 16da51d1b62ef6d4ee1849350434023b UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
 373438c1b628a011e397cd5deb0af8d4 Assembly-CSharp.dll:.vp_CharacterController
+98f0dfd2378729c082be8d0dd8ea0d71 Assembly-CSharp.dll:UnityEngine.PostProcessing.PostProcessingBehaviour
 a97312e37090988437ef598983494f9c Assembly-CSharp.dll:.vp_RagdollHandler
 131dd0321b8a916229a9dba422db22d9 Assembly-CSharp.dll:.vp_PlayerRespawner
 028fecaf86d3578c20c0f62b2af0cecb Assembly-CSharp.dll:ProBuilder2.Examples.IcoBumpin
@@ -146,6 +150,7 @@ da21fc3f8056b1f91c3dd09c7bf4f90a UnityEngine.Networking.dll:UnityEngine.Networki
 529a95e9e8e7686c4816e08fbb37183f UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransform
 fc061f3ae8a876c0687e86378d4a447c UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 7ca56e063bd071986fff4f513cc4f477 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
+fb21d153624fd600be09f3bf01a77c29 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Vehicles.Car.WheelEffects
 3ebb2c0774eb30293f21ef325e37f01a Assembly-CSharp.dll:.vp_FPSDemo2
 4ff7b5246114a7386975404f687c14d7 Assembly-CSharp.dll:.vp_Effect
 da6593ddfd3aff488e8a8928235d52a9 Assembly-CSharp.dll:.vp_HealthPowerup
@@ -155,12 +160,15 @@ da6593ddfd3aff488e8a8928235d52a9 Assembly-CSharp.dll:.vp_HealthPowerup
 19d71d5410848d9057cfd7ff22646459 Assembly-CSharp.dll:.vp_PlayerDamageHandler
 ccdc4836df2e335b1bb8e89095451a5f Assembly-CSharp.dll:.vp_ImpactEvent
 847c8545112be207170a68122c173b40 Assembly-CSharp.dll:.vp_UnitBankType
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:MK.XRay.MKXRayCopyPropertiesRuntime
 64b063a9ba8e503aa6fe2077745087af Assembly-CSharp.dll:.vp_ItemType
 32650ecbd6b2a126bb98809b63944abc Assembly-CSharp.dll:.vp_HitscanBullet
 56c5057f7f6f362fccba684921f1f7c9 Assembly-CSharp.dll:.vp_Remover
+bad8f2e4484d10ed3f446543a0b5f31f Assembly-CSharp.dll:RetroAesthetics.Demos.MenuScripts
 382b8ef512fa8d6108723a01b57af65b UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsEventTracker
 d22c788799ee45d8676254eccf20e8b8 UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsTracker
 1b852f9eb3569377f3f6a10770b65850 Assembly-CSharp.dll:.vp_WeaponThrower
+8e2f9ec7490187a98fc38330cdeb82dd Assembly-CSharp.dll:RetroAesthetics.UVScroller
 d75dc834c5dec688db75a55a1724c90f UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
 486cd95c82d8305219c352c06b776e1f UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInput
 e1ea12ca952c81d81a9a21fdf34446ed UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
@@ -170,6 +178,7 @@ fd405851baf572043bad472255b61401 Assembly-CSharp.dll:.vp_DoomsDayDevice
 94ba65d9cdba39d9de400e76c3e4eaa5 Assembly-CSharp.dll:.vp_FXBullet
 96f3ea9f23b6f08e60710ebb4af49174 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
 490c2b533b20a6a6423c0644b134f274 Assembly-CSharp.dll:.vp_BodyAnimator
+281ee41f7d62b3801b9c1a1cd4516da8 Assembly-CSharp.dll:MK.XRay.MKXRayDemoMouseOrbitImproved
 ed3ed9969d3004eda2e62cdb8d8f680b Assembly-CSharp.dll:.vp_Switch
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.vp_MuzzleFlash
 4cdfa3b51a64abd93faa645b8c732d0e Assembly-CSharp.dll:.MineDetector
@@ -182,10 +191,14 @@ ce3e4e524eaf9c9f2a23d930a4c92029 Assembly-CSharp.dll:.vp_WeaponHandler
 f16835701e71dd5d6fb1fed4b7aff1d8 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 58c4fa6ccd836efb57a0890deca9ae96 Assembly-CSharp.dll:.vp_PainHUD
 08b5415ae5dad2c52259d390d4fdc8f9 Assembly-CSharp.dll:.vp_Explosion
+43323be6d86dceddaf4d4b28c42782f0 Assembly-CSharp.dll:.HologramCube
 ec1cc0b970ef616931f49f9659e5b887 Assembly-CSharp.dll:.vp_Weapon
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:ProBuilder2.Examples.HueCube
+78b41c97efa08ac6faefe49d160ef5eb Assembly-CSharp.dll:RetroAesthetics.RetroCameraEffect
 74efb805db10e6ee45f1e8a4e9dab567 Assembly-CSharp.dll:.vp_FPController
 88d1abbc47668c0744512803e87b6e27 Assembly-CSharp.dll:.vp_Toss
+40b4acd5f0a278e0ddc37d8a6548f29a Assembly-CSharp.dll:RetroAesthetics.Demos.SpeedTilt
+e2bc6ef764fff21ff1e9db5ef924d331 Assembly-CSharp.dll:.ExampleWheelController
 c8badc5877e2334fa0302da77700ebbb Assembly-CSharp.dll:.vp_SimpleFiring
 486cd95c82d8305219c352c06b776e1f Unity.TextMeshPro.dll:TMPro.TMP_SpriteAnimator
 c995a8358a70bf052a3e4bf686a1a05b Assembly-CSharp.dll:.vp_WeaponReloader
@@ -194,8 +207,10 @@ c995a8358a70bf052a3e4bf686a1a05b Assembly-CSharp.dll:.vp_WeaponReloader
 8a95d6f9308b71ce692cf868a4c94e97 Assembly-CSharp.dll:.vp_DamageHandler
 64fb53c57d5d09ce6ea36a3ca6f77ab1 Assembly-CSharp.dll:.vp_SurfaceIdentifier
 6d55b2d5ce3b4370393ac646dd1abc96 Assembly-CSharp.dll:.vp_Spin
+45b700030450605fc114d491fb533810 Assembly-CSharp.dll:RetroAesthetics.CombineMeshes
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:ProGrids.pg_IgnoreSnap
 84b404c918582bcb89695a6c585bac5b Assembly-CSharp.dll:.vp_VRCrosshair
+9eb034e497adcd2c8aab8c6c35c6fc14 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Vehicles.Car.CarController
 164a4a793a0226d0514e63c14f6abcbe Assembly-CSharp.dll:.vp_ItemIdentifier
 dc452cff726e9233529a8d0d0657b643 Assembly-CSharp.dll:.vp_DamageTransfer
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.vp_KillZone
@@ -217,6 +232,7 @@ cecf74a4a014467f492fa5579fb4b397 Facebook.Unity.Settings.dll:Facebook.Unity.Sett
 373438c1b628a011e397cd5deb0af8d4 Assembly-CSharp.dll:.vp_CapsuleController
 3f9685db96b0f39c68f6f7553c42c5c4 Assembly-CSharp.dll:.vp_FPInteractManager
 ce3e4e524eaf9c9f2a23d930a4c92029 Assembly-CSharp.dll:.vp_FPWeaponHandler
+c94d2c6df1357437968e3d46bb55470b Assembly-CSharp.dll:MK.XRay.InfoTextDisable
 201273fb4f889724fb090164b7d6c657 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 486cd95c82d8305219c352c06b776e1f UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
 0f27c39183b9eb95eba0a228bea28273 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkDiscovery
@@ -267,9 +283,11 @@ e1ea12ca952c81d81a9a21fdf34446ed UnityEngine.HoloLens.dll:UnityEngine.EventSyste
 dfd33ff9ae3ce8d7ca1f22b475ec2387 UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 aac9c55ae7ba4b95b852a7d9c191acd1 Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
 89629ae1315ae9cc0dd2cddf5f26fefb Assembly-CSharp.dll:.pg_SceneMeshRender
+06d51b8055e70ca39cec8ba3a3a6b0e1 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Vehicles.Car.CarAudio
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.vp_FPPlayerEventHandler
 ea2ac1ff4b04664a7e05ba3e842c68ad Assembly-CSharp.dll:.vp_PlayerInventory
 78f98eea46a8e09f2ea65289e5ce9943 Assembly-CSharp.dll:.vp_SurfaceType
+713f094d38dde97adcca89d1fad847c0 Assembly-CSharp.dll:UnityEngine.PostProcessing.PostProcessingProfile
 e3cd80f2eb93cafd6b7bb6efeb62a6d7 Assembly-CSharp.dll:ProBuilder2.Examples.CameraControls
 0a006f3734181ba8b26758f0866152c0 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 ead89877b474a4484d9d43fd0a2f3196 Assembly-CSharp.dll:.vp_SecurityCamTurret
@@ -281,12 +299,13 @@ afcff10a761abc9a756820d624adb273 Assembly-CSharp.dll:.vp_Component
 aa6b41d8da89b53387868813d6424c09 Assembly-CSharp.dll:.vp_SimpleCrosshair
 f7be7ce34bdb5f7c6d663c1fb52f17ce Assembly-CSharp.dll:.vp_RandomSpawner
 515f98a7c262a21afc62228287bcd2b5 Assembly-CSharp.dll:.vp_SimpleHUD
-3fbcceb7f5dceccf8232eed5ca5f0dfb Assembly-CSharp.dll:.GameManager
+ebfacc4f87bfbe0cb03c2f401163a990 Assembly-CSharp.dll:.GameManager
 e04611b8715e6833d2bd7010fc6be10b Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 96cab4cdb66ef1e2919881083bcf1bab Assembly-CSharp.dll:.vp_Bullet
 878a30c1306321537d6162114af5f31f Assembly-CSharp.dll:.vp_Grab
 2f9af06a78208a67db480e9bfed4a076 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 9318334b30e9f195f573b2ce00154b95 Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp-firstpass.dll:UnityStandardAssets.Utility.FPSCounter
 40bf3f6b0514390c18b89f2a1d98a6c2 Assembly-CSharp.dll:.ParentOfMineDetectors
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.vp_PlayerEventHandler
 4827304e6a6c822aad8f28bdab6fb352 Assembly-CSharp.dll:.BlockDestroyer

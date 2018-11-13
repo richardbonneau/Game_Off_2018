@@ -254,6 +254,7 @@ public class vp_DamageHandler : MonoBehaviour {
             } else if (this.gameObject.tag == "Mine") {
                 Instantiate(mineExplosionPrefab, this.transform.position, Quaternion.identity);
                 this.gameObject.SetActive(false);
+                this.transform.parent.GetChild(1).gameObject.SetActive(true);
 
             } else {
                 // send the 'Die' message, to be picked up by vp_DamageHandlers and vp_Respawners
