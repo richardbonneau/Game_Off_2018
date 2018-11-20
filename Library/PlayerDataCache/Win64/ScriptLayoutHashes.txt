@@ -1,8 +1,10 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/rubik/Documents/Game Off 2018/Builds/0.5/Game Off 2018.exe
+C:/Users/rubik/Documents/Game Off 2018/Builds/0.7/Game Off 2018.exe
 SceneListBegin?
-Assets/Scenes/SampleScene.unity
+Assets/_Scenes/level_1.unity
+Assets/_Scenes/level_2.unity
+Assets/_Scenes/level_3.unity
 SceneListEnd?
 4206c110c99e43920bbd36a379dec799 ProBuilderCore-Unity5.dll:ProBuilder2.Common.pb_PreferenceDictionary
 c16f819ab660a4013946bc58acb77a86 Assembly-CSharp.dll:.vp_ItemPickup
@@ -299,7 +301,7 @@ afcff10a761abc9a756820d624adb273 Assembly-CSharp.dll:.vp_Component
 aa6b41d8da89b53387868813d6424c09 Assembly-CSharp.dll:.vp_SimpleCrosshair
 f7be7ce34bdb5f7c6d663c1fb52f17ce Assembly-CSharp.dll:.vp_RandomSpawner
 515f98a7c262a21afc62228287bcd2b5 Assembly-CSharp.dll:.vp_SimpleHUD
-ebfacc4f87bfbe0cb03c2f401163a990 Assembly-CSharp.dll:.GameManager
+df68832216b61960ea0be57d47431bfa Assembly-CSharp.dll:.GameManager
 e04611b8715e6833d2bd7010fc6be10b Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 96cab4cdb66ef1e2919881083bcf1bab Assembly-CSharp.dll:.vp_Bullet
 878a30c1306321537d6162114af5f31f Assembly-CSharp.dll:.vp_Grab
@@ -315,3 +317,6 @@ a77e43041436c52f4017dc7a2e134a57 Assembly-CSharp.dll:.vp_SlomoPowerup
 c0230079978996b923b325c90d4b672a Assembly-CSharp.dll:ProBuilder2.Examples.RuntimeEdit
 ab20be0ad0b636d77c3a81cf0d865706 Assembly-CSharp.dll:.vp_WeaponShooter
 e37e37dc442cfdae0aaa148f72b19e92 Assembly-CSharp.dll:.vp_Grenade
+ebfacc4f87bfbe0cb03c2f401163a990 Assembly-CSharp.dll:.MineManager
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.NextLevelZone
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.DontDestroy

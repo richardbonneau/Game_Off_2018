@@ -55,9 +55,12 @@
   <ItemGroup>
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\BlockDestroyer.cs" />
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\BlockScript.cs" />
+     <Compile Include="Assets\_MinesweeperDungeon\Scripts\DontDestroy.cs" />
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\GameManager.cs" />
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\HologramCube.cs" />
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\MineDetector.cs" />
+     <Compile Include="Assets\_MinesweeperDungeon\Scripts\MineManager.cs" />
+     <Compile Include="Assets\_MinesweeperDungeon\Scripts\NextLevelZone.cs" />
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\ParentOfMineDetectors.cs" />
      <Compile Include="Assets\MK\MKXRayFree\Demo\Code\AutoEnableObjects.cs" />
      <Compile Include="Assets\MK\MKXRayFree\Demo\Code\InfoTextDisable.cs" />

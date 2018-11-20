@@ -7,19 +7,18 @@ public class ParentOfMineDetectors : MonoBehaviour {
     public int numberOfMines = 0;
     public GameObject[] mineDetectors;
     public Texture[] numberedTextures;
-    GameManager gameManager;
+    MineManager mineManager;
     bool hasbeenTriggered = false;
 
 
     bool cubeCheck = false;
     void Start() {
-        gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+        mineManager = GameObject.FindWithTag("MineManager").GetComponent<MineManager>();
     }
     void Update() {
-        if (cubeCheck == false) {
+        if (cubeCheck == false && numberOfMines != 0) {
             cubeCheck = true;
             this.transform.parent.GetChild(2).GetChild(numberOfMines - 1).gameObject.SetActive(true);
-
         }
 
     }
@@ -27,14 +26,15 @@ public class ParentOfMineDetectors : MonoBehaviour {
         if (!hasbeenTriggered) {
             hasbeenTriggered = true;
             GameObject parentCube = this.transform.parent.GetChild(0).gameObject;
+
             if (numberOfMines == 0) {
+
                 this.transform.parent.GetChild(2).gameObject.SetActive(false);
                 parentCube.SetActive(false);
 
                 foreach (var i in mineDetectors) {
                     i.GetComponent<MineDetector>().DeactivateSurroundingCubes();
                 }
-
             } else parentCube.SetActive(false);
         }
     }
