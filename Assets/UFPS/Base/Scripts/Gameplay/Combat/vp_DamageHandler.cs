@@ -206,6 +206,19 @@ public class vp_DamageHandler : MonoBehaviour {
         Damage(new vp_DamageInfo(damage, null));
     }
     public virtual void Damage(vp_DamageInfo damageInfo) {
+        //  RICHARD:
+        if (this.gameObject.tag == "Block" && damageInfo.Type == vp_DamageInfo.DamageType.Pickaxe) {
+            ParentOfMineDetectors mineDetectorParentScript = this.transform.parent.GetChild(1).gameObject.GetComponent<ParentOfMineDetectors>();
+            mineDetectorParentScript.TriggerCheckAllCubes();
+            return;
+        } else if (this.gameObject.tag == "Block" && damageInfo.Type == vp_DamageInfo.DamageType.Bullet) {
+            return;
+        } else if (this.gameObject.tag == "Mine" && damageInfo.Type == vp_DamageInfo.DamageType.Pickaxe) {
+            Instantiate(mineExplosionPrefab, this.transform.position, Quaternion.identity);
+            this.gameObject.SetActive(false);
+            this.transform.parent.GetChild(1).gameObject.SetActive(true);
+            return;
+        }
 
         if (!enabled)
             return;
@@ -248,21 +261,26 @@ public class vp_DamageHandler : MonoBehaviour {
         if (CurrentHealth <= 0.0f) {
             //  RICHARD:
             print("damage type " + damageInfo.Type);
-            if (this.gameObject.tag == "Block") {
+
+            if (this.gameObject.tag == "Block" && damageInfo.Type == vp_DamageInfo.DamageType.Pickaxe) {
                 ParentOfMineDetectors mineDetectorParentScript = this.transform.parent.GetChild(1).gameObject.GetComponent<ParentOfMineDetectors>();
                 mineDetectorParentScript.TriggerCheckAllCubes();
-            } else if (this.gameObject.tag == "Mine") {
+            } else if (this.gameObject.tag == "Mine" && damageInfo.Type == vp_DamageInfo.DamageType.Bullet) {
                 Instantiate(mineExplosionPrefab, this.transform.position, Quaternion.identity);
                 this.gameObject.SetActive(false);
                 this.transform.parent.GetChild(1).gameObject.SetActive(true);
-
-            } else {
-                // send the 'Die' message, to be picked up by vp_DamageHandlers and vp_Respawners
-                if (m_InstaKill)
-                    SendMessage("Die");
-                else
-                    vp_Timer.In(UnityEngine.Random.Range(MinDeathDelay, MaxDeathDelay), delegate () { SendMessage("Die"); });
             }
+
+
+
+
+
+            // // send the 'Die' message, to be picked up by vp_DamageHandlers and vp_Respawners
+            // if (m_InstaKill)
+            //     SendMessage("Die");
+            // else
+            //     vp_Timer.In(UnityEngine.Random.Range(MinDeathDelay, MaxDeathDelay), delegate () { SendMessage("Die"); });
+
         }
     }
 

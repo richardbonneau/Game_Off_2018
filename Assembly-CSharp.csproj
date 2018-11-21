@@ -199,6 +199,7 @@
      <Compile Include="Assets\UFPS\Base\Scripts\Effects\vp_Shell.cs" />
      <Compile Include="Assets\UFPS\Base\Scripts\Gameplay\AI\vp_SecurityCamTurret.cs" />
      <Compile Include="Assets\UFPS\Base\Scripts\Gameplay\AI\vp_SimpleAITurret.cs" />
+     <Compile Include="Assets\UFPS\Base\Scripts\Gameplay\Combat\PickaxeDamage.cs" />
      <Compile Include="Assets\UFPS\Base\Scripts\Gameplay\Combat\vp_Bullet.cs" />
      <Compile Include="Assets\UFPS\Base\Scripts\Gameplay\Combat\vp_DamageHandler.cs" />
      <Compile Include="Assets\UFPS\Base\Scripts\Gameplay\Combat\vp_DamageInfo.cs" />
