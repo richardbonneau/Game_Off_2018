@@ -4,17 +4,16 @@ using UnityEngine;
 using System.Linq;
 
 public class MineManager : MonoBehaviour {
-
     public List<GameObject> blocksToDestroy = new List<GameObject>();
+    public int quantityMinesInLevel = 0;
+    public int quantityMinesFlagged = 0;
     public GameObject minimap;
     bool minimapOn = false;
 
-    // Use this for initialization
     void Start() {
-
+        quantityMinesInLevel = GameObject.FindGameObjectsWithTag("Mine").Length;
     }
 
-    // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown(KeyCode.M)) {
             if (minimapOn) {
@@ -24,17 +23,13 @@ public class MineManager : MonoBehaviour {
                 minimapOn = true;
                 minimap.SetActive(true);
             }
-
         }
     }
+
     public void DestroyCubes() {
-
         blocksToDestroy = blocksToDestroy.Distinct().ToList();
-        foreach (var j in blocksToDestroy) {
-            j.transform.GetChild(0).gameObject.SetActive(false);
+        foreach (var block in blocksToDestroy) {
+            block.transform.GetChild(0).gameObject.SetActive(false);
         }
-        // blocksToDestroy.Clear();
-
     }
-
 }

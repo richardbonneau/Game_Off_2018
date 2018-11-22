@@ -17,14 +17,11 @@ public class MineDetector : MonoBehaviour {
         mineManager = GameObject.FindWithTag("MineManager").GetComponent<MineManager>();
     }
     void OnTriggerEnter(Collider col) {
-        print("trigger enter");
         if (col.gameObject.tag == "Block") {
-            print("trigger block");
             collidedBlock = col;
             thisParentMineDetectorsScript.mineChecksDone += 1;
             mineCheckDone = true;
         } else if (col.gameObject.tag == "Mine") {
-            print("trigger mine");
             thisParentMineDetectorsScript.numberOfMines += 1;
             thisParentMineDetectorsScript.mineChecksDone += 1;
             mineCheckDone = true;

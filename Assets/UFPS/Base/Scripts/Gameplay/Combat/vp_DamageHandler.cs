@@ -26,6 +26,12 @@ using UnityEngine.SceneManagement;
 
 public class vp_DamageHandler : MonoBehaviour {
 
+    //  RICHARD
+    MineManager mineManager;
+    public bool isFlagged = false;
+
+
+
     // health and death
     public float MaxHealth = 1.0f;                      // initial health of the object instance, to be reset on respawn
     public GameObject[] DeathSpawnObjects = null;       // gameobjects to spawn when object dies.
@@ -160,6 +166,8 @@ public class vp_DamageHandler : MonoBehaviour {
     /// </summary>
     protected virtual void Awake() {
 
+        mineManager = GameObject.FindWithTag("MineManager").GetComponent<MineManager>();
+
         m_Audio = GetComponent<AudioSource>();
 
         CurrentHealth = MaxHealth;
@@ -207,17 +215,41 @@ public class vp_DamageHandler : MonoBehaviour {
     }
     public virtual void Damage(vp_DamageInfo damageInfo) {
         //  RICHARD:
-        if (this.gameObject.tag == "Block" && damageInfo.Type == vp_DamageInfo.DamageType.Pickaxe) {
+        //  REFACTOR: string on tags
+        if (this.gameObject.tag == "Block" && damageInfo.Type == vp_DamageInfo.DamageType.Pickaxe && !isFlagged) {
             ParentOfMineDetectors mineDetectorParentScript = this.transform.parent.GetChild(1).gameObject.GetComponent<ParentOfMineDetectors>();
             mineDetectorParentScript.TriggerCheckAllCubes();
             return;
         } else if (this.gameObject.tag == "Block" && damageInfo.Type == vp_DamageInfo.DamageType.Bullet) {
             return;
-        } else if (this.gameObject.tag == "Mine" && damageInfo.Type == vp_DamageInfo.DamageType.Pickaxe) {
+        } else if (this.gameObject.tag == "Mine" && damageInfo.Type == vp_DamageInfo.DamageType.Pickaxe && !isFlagged) {
             Instantiate(mineExplosionPrefab, this.transform.position, Quaternion.identity);
             this.gameObject.SetActive(false);
             this.transform.parent.GetChild(1).gameObject.SetActive(true);
             return;
+        } else if (this.gameObject.tag == "Mine" && damageInfo.Type == vp_DamageInfo.DamageType.Flag) {
+            if (!isFlagged) {
+                mineManager.quantityMinesFlagged += 1;
+                isFlagged = true;
+                this.gameObject.transform.GetChild(1).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.yellow);
+                return;
+            } else {
+                mineManager.quantityMinesFlagged -= 1;
+                isFlagged = false;
+                //  Get original color in a var somewhere
+                this.gameObject.transform.GetChild(1).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.blue);
+                return;
+            }
+        } else if (this.gameObject.tag == "Block" && damageInfo.Type == vp_DamageInfo.DamageType.Flag) {
+            if (!isFlagged) {
+                isFlagged = true;
+                this.gameObject.transform.GetChild(1).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.yellow);
+                return;
+            } else {
+                isFlagged = false;
+                this.gameObject.transform.GetChild(1).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.blue);
+                return;
+            }
         }
 
         if (!enabled)
@@ -259,27 +291,11 @@ public class vp_DamageHandler : MonoBehaviour {
         // detect and transmit death as event
 
         if (CurrentHealth <= 0.0f) {
-            //  RICHARD:
-            print("damage type " + damageInfo.Type);
-
-            if (this.gameObject.tag == "Block" && damageInfo.Type == vp_DamageInfo.DamageType.Pickaxe) {
-                ParentOfMineDetectors mineDetectorParentScript = this.transform.parent.GetChild(1).gameObject.GetComponent<ParentOfMineDetectors>();
-                mineDetectorParentScript.TriggerCheckAllCubes();
-            } else if (this.gameObject.tag == "Mine" && damageInfo.Type == vp_DamageInfo.DamageType.Bullet) {
-                Instantiate(mineExplosionPrefab, this.transform.position, Quaternion.identity);
-                this.gameObject.SetActive(false);
-                this.transform.parent.GetChild(1).gameObject.SetActive(true);
-            }
-
-
-
-
-
-            // // send the 'Die' message, to be picked up by vp_DamageHandlers and vp_Respawners
-            // if (m_InstaKill)
-            //     SendMessage("Die");
-            // else
-            //     vp_Timer.In(UnityEngine.Random.Range(MinDeathDelay, MaxDeathDelay), delegate () { SendMessage("Die"); });
+            // send the 'Die' message, to be picked up by vp_DamageHandlers and vp_Respawners
+            if (m_InstaKill)
+                SendMessage("Die");
+            else
+                vp_Timer.In(UnityEngine.Random.Range(MinDeathDelay, MaxDeathDelay), delegate () { SendMessage("Die"); });
 
         }
     }
