@@ -2,11 +2,14 @@
 
 
 using UnityEngine;
+using UnityEngine.AI;
 using System.Collections;
 
 public class UnitMovement : MonoBehaviour {
 
     NavMeshAgent agent;
+
+    public Transform target;
     public float m_Speed = 3.0f;                 // How fast the tank moves forward and back.
     public float m_TurnSpeed = 1f;            // How fast the tank turns in degrees per second.
     public int currentHealth = 50;              //The tank's current health point total
@@ -40,7 +43,7 @@ public class UnitMovement : MonoBehaviour {
     private byte sel_ltargetPointPos;                   //(enemy AI) selected targetPointPos in array
 
     private void Awake() {
-        agent = GetComponent<NavMeshAgent>();
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 
         animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody>();
@@ -116,9 +119,9 @@ public class UnitMovement : MonoBehaviour {
         // Create a vector in the direction the tank is facing with a magnitude based on the input, speed and the time between frames.
         Vector3 movement = transform.forward * m_Speed * Time.deltaTime;
 
-        // Apply this movement to the rigidbody's position.
-        //m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
-        agent.setDestination();
+        //Apply this movement to the rigidbody's position.
+        m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
+        // agent.SetDestination(new Vector3(target.position.x, target.position.y, target.position.z));
 
     }
 

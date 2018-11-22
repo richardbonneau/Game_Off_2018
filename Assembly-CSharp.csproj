@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\DontDestroy.cs" />
+     <Compile Include="Assets\_MinesweeperDungeon\Scripts\EnemyMovement.cs" />
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\FlagPlant.cs" />
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\GameManager.cs" />
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\HologramCube.cs" />
