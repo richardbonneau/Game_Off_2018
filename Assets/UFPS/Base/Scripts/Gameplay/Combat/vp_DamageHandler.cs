@@ -29,6 +29,7 @@ public class vp_DamageHandler : MonoBehaviour {
     //  RICHARD
     MineManager mineManager;
     public bool isFlagged = false;
+    Color defaultColor;
 
 
 
@@ -166,8 +167,11 @@ public class vp_DamageHandler : MonoBehaviour {
     /// </summary>
     protected virtual void Awake() {
 
+        //
         mineManager = GameObject.FindWithTag("MineManager").GetComponent<MineManager>();
-
+        defaultColor = this.transform.GetChild(1).GetComponent<Renderer>().material.GetColor("_EmissionColor");
+        print(defaultColor);
+        //
         m_Audio = GetComponent<AudioSource>();
 
         CurrentHealth = MaxHealth;
@@ -220,12 +224,16 @@ public class vp_DamageHandler : MonoBehaviour {
             ParentOfMineDetectors mineDetectorParentScript = this.transform.parent.GetChild(1).gameObject.GetComponent<ParentOfMineDetectors>();
             mineDetectorParentScript.TriggerCheckAllCubes();
             return;
+        } else if (this.gameObject.tag == "Block" && damageInfo.Type == vp_DamageInfo.DamageType.Pickaxe && isFlagged) {
+            return;
         } else if (this.gameObject.tag == "Block" && damageInfo.Type == vp_DamageInfo.DamageType.Bullet) {
             return;
         } else if (this.gameObject.tag == "Mine" && damageInfo.Type == vp_DamageInfo.DamageType.Pickaxe && !isFlagged) {
             Instantiate(mineExplosionPrefab, this.transform.position, Quaternion.identity);
             this.gameObject.SetActive(false);
             this.transform.parent.GetChild(1).gameObject.SetActive(true);
+            return;
+        } else if (this.gameObject.tag == "Mine" && damageInfo.Type == vp_DamageInfo.DamageType.Pickaxe && isFlagged) {
             return;
         } else if (this.gameObject.tag == "Mine" && damageInfo.Type == vp_DamageInfo.DamageType.Flag) {
             if (!isFlagged) {
@@ -237,7 +245,7 @@ public class vp_DamageHandler : MonoBehaviour {
                 mineManager.quantityMinesFlagged -= 1;
                 isFlagged = false;
                 //  Get original color in a var somewhere
-                this.gameObject.transform.GetChild(1).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.blue);
+                this.gameObject.transform.GetChild(1).GetComponent<Renderer>().material.SetColor("_EmissionColor", defaultColor);
                 return;
             }
         } else if (this.gameObject.tag == "Block" && damageInfo.Type == vp_DamageInfo.DamageType.Flag) {
@@ -247,7 +255,7 @@ public class vp_DamageHandler : MonoBehaviour {
                 return;
             } else {
                 isFlagged = false;
-                this.gameObject.transform.GetChild(1).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.blue);
+                this.gameObject.transform.GetChild(1).GetComponent<Renderer>().material.SetColor("_EmissionColor", defaultColor);
                 return;
             }
         }
