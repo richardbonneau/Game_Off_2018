@@ -120,6 +120,8 @@ public class TurretTurn : MonoBehaviour {
             for (int i = 0; i < Weap.Length; i++) {
                 if (nextFire[i] <= 0) {
 
+                    Weap[i].Weapon.GetComponent<weaponFire>().fire();
+
                     nextFire[i] = Weap[i].FireRate;
                     animatorWeap = Weap[i].Weapon.GetComponent<Animator>();
                     animatorWeap.SetTrigger("Fire");
