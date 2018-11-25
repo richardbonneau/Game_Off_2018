@@ -17,11 +17,11 @@ public class MineDetector : MonoBehaviour {
         mineManager = GameObject.FindWithTag("MineManager").GetComponent<MineManager>();
     }
     void OnTriggerEnter(Collider col) {
-        if (col.gameObject.tag == "Block") {
+        if (col.gameObject.CompareTag("Block")) {
             collidedBlock = col;
             thisParentMineDetectorsScript.mineChecksDone += 1;
             mineCheckDone = true;
-        } else if (col.gameObject.tag == "Mine") {
+        } else if (col.gameObject.CompareTag("Mine")) {
             thisParentMineDetectorsScript.numberOfMines += 1;
             thisParentMineDetectorsScript.mineChecksDone += 1;
             mineCheckDone = true;
@@ -31,7 +31,6 @@ public class MineDetector : MonoBehaviour {
     public void DeactivateSurroundingCubes() {
 
         if (collidedBlock != null) {
-
             mineManager.blocksToDestroy.Add(collidedBlock.transform.parent.gameObject);
             mineManager.DestroyCubes();
             colMineDetectorParentScript = collidedBlock.transform.parent.GetChild(1).gameObject.GetComponent<ParentOfMineDetectors>();

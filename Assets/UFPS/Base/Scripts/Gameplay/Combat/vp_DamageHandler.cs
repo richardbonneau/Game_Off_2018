@@ -28,6 +28,7 @@ public class vp_DamageHandler : MonoBehaviour {
 
     //  RICHARD
     MineManager mineManager;
+    GameManager gameManager;
     public bool isFlagged = false;
     Color defaultColor;
 
@@ -169,8 +170,15 @@ public class vp_DamageHandler : MonoBehaviour {
 
         //
         mineManager = GameObject.FindWithTag("MineManager").GetComponent<MineManager>();
-        defaultColor = this.transform.GetChild(1).GetComponent<Renderer>().material.GetColor("_EmissionColor");
-        print(defaultColor);
+        gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+        try {
+            if (this.transform.parent.CompareTag("Block") || this.transform.parent.CompareTag("Mine")) {
+                defaultColor = this.transform.GetChild(1).GetComponent<Renderer>().material.GetColor("_EmissionColor");
+            }
+        } catch (NullReferenceException ex) {
+            //
+        }
+
         //
         m_Audio = GetComponent<AudioSource>();
 
@@ -218,24 +226,29 @@ public class vp_DamageHandler : MonoBehaviour {
         Damage(new vp_DamageInfo(damage, null));
     }
     public virtual void Damage(vp_DamageInfo damageInfo) {
+
         //  RICHARD:
         //  REFACTOR: string on tags
-        if (this.gameObject.tag == "Block" && damageInfo.Type == vp_DamageInfo.DamageType.Pickaxe && !isFlagged) {
+
+        if (this.gameObject.CompareTag("Player")) {
+            gameManager.lives -= 1;
+        } else if (this.gameObject.CompareTag("Block") && damageInfo.Type == vp_DamageInfo.DamageType.Pickaxe && !isFlagged) {
             ParentOfMineDetectors mineDetectorParentScript = this.transform.parent.GetChild(1).gameObject.GetComponent<ParentOfMineDetectors>();
             mineDetectorParentScript.TriggerCheckAllCubes();
             return;
-        } else if (this.gameObject.tag == "Block" && damageInfo.Type == vp_DamageInfo.DamageType.Pickaxe && isFlagged) {
+        } else if (this.gameObject.CompareTag("Block") && damageInfo.Type == vp_DamageInfo.DamageType.Pickaxe && isFlagged) {
             return;
-        } else if (this.gameObject.tag == "Block" && damageInfo.Type == vp_DamageInfo.DamageType.Bullet) {
+        } else if (this.gameObject.CompareTag("Block") && damageInfo.Type == vp_DamageInfo.DamageType.Bullet) {
             return;
-        } else if (this.gameObject.tag == "Mine" && damageInfo.Type == vp_DamageInfo.DamageType.Pickaxe && !isFlagged) {
+        } else if (this.gameObject.CompareTag("Mine") && damageInfo.Type == vp_DamageInfo.DamageType.Pickaxe && !isFlagged) {
+            mineManager.quantityMinesBlown += 1;
             Instantiate(mineExplosionPrefab, this.transform.position, Quaternion.identity);
             this.gameObject.SetActive(false);
             this.transform.parent.GetChild(1).gameObject.SetActive(true);
             return;
-        } else if (this.gameObject.tag == "Mine" && damageInfo.Type == vp_DamageInfo.DamageType.Pickaxe && isFlagged) {
+        } else if (this.gameObject.CompareTag("Mine") && damageInfo.Type == vp_DamageInfo.DamageType.Pickaxe && isFlagged) {
             return;
-        } else if (this.gameObject.tag == "Mine" && damageInfo.Type == vp_DamageInfo.DamageType.Flag) {
+        } else if (this.gameObject.CompareTag("Mine") && damageInfo.Type == vp_DamageInfo.DamageType.Flag) {
             if (!isFlagged) {
                 mineManager.quantityMinesFlagged += 1;
                 isFlagged = true;
@@ -250,10 +263,12 @@ public class vp_DamageHandler : MonoBehaviour {
             }
         } else if (this.gameObject.tag == "Block" && damageInfo.Type == vp_DamageInfo.DamageType.Flag) {
             if (!isFlagged) {
+                mineManager.quantityMinesFalselyFlagged += 1;
                 isFlagged = true;
                 this.gameObject.transform.GetChild(1).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.yellow);
                 return;
             } else {
+                mineManager.quantityMinesFalselyFlagged -= 1;
                 isFlagged = false;
                 this.gameObject.transform.GetChild(1).GetComponent<Renderer>().material.SetColor("_EmissionColor", defaultColor);
                 return;
