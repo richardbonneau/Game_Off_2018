@@ -105,10 +105,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 726, y: 421}
-  m_MaxSize: {x: 16008, y: 8042}
+  m_MinSize: {x: 724, y: 421}
+  m_MaxSize: {x: 16006, y: 8042}
   vertical: 0
-  controlID: 166
+  controlID: 97
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -129,10 +129,10 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 947
-  m_MinSize: {x: 726, y: 421}
-  m_MaxSize: {x: 16008, y: 8042}
+  m_MinSize: {x: 724, y: 421}
+  m_MaxSize: {x: 16006, y: 8042}
   vertical: 1
-  controlID: 167
+  controlID: 98
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -155,8 +155,8 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 519
-  m_MinSize: {x: 726, y: 200}
-  m_MaxSize: {x: 16008, y: 4021}
+  m_MinSize: {x: 724, y: 200}
+  m_MaxSize: {x: 16006, y: 4021}
   vertical: 0
   controlID: 99
 --- !u!114 &8
@@ -253,8 +253,8 @@ MonoBehaviour:
     y: 0
     width: 362
     height: 519
-  m_MinSize: {x: 145, y: 50}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 143, y: 29}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 20}
@@ -286,7 +286,7 @@ MonoBehaviour:
   m_MinSize: {x: 304, y: 221}
   m_MaxSize: {x: 8004, y: 4021}
   vertical: 0
-  controlID: 168
+  controlID: 191
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -385,7 +385,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -554,7 +554,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 18fbffff00000000
+    m_ExpandedIDs: c42effffce2fffff688cffff0abeffff10beffff18fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -773,7 +773,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 79}
     m_SelectedIDs: 923a0000
     m_LastClickedID: 14994
-    m_ExpandedIDs: 00000000502e00001c3000005c3100001c3200008a3200005c3400007e340000ca34000098360000e03700007c3900007e390000e2390000983a00005a3e0000d83f0000044000004440000040410000824100000444000010440000584400008c440000d6440000f44400007c470000e4470000484800006c48000076490000fe490000024a00000a4a0000004b00001e4b0000524c00002c4d0000804e00008e4e0000d84e000080510000d85100003c5200005c5300007a530000ae5500003a5600001460000000ca9a3b
+    m_ExpandedIDs: 00000000502e00001c3000005c3100001c3200008a3200005c3400007e340000ca34000098360000e03700007c3900007e390000e2390000983a00005a3e0000d83f0000044000004440000040410000824100000444000010440000584400008c440000d6440000f44400007c470000e4470000484800006c48000076490000fe490000024a00000a4a0000004b00001e4b0000524c00002c4d0000804e00008e4e0000d84e000080510000d85100003c5200005c5300007a530000ae5500003a56000014600000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

@@ -166,13 +166,14 @@ public class vp_DamageHandler : MonoBehaviour {
     /// <summary>
     /// 
     /// </summary>
-    protected virtual void Awake() {
 
-        //
+    void Start() {
         mineManager = GameObject.FindWithTag("MineManager").GetComponent<MineManager>();
         gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+    }
+    protected virtual void Awake() {
         try {
-            if (this.transform.parent.CompareTag("Block") || this.transform.parent.CompareTag("Mine")) {
+            if (this.CompareTag("Block") || this.CompareTag("Mine")) {
                 defaultColor = this.transform.GetChild(1).GetComponent<Renderer>().material.GetColor("_EmissionColor");
             }
         } catch (NullReferenceException ex) {

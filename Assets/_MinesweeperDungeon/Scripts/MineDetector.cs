@@ -32,7 +32,7 @@ public class MineDetector : MonoBehaviour {
 
         if (collidedBlock != null) {
             mineManager.blocksToDestroy.Add(collidedBlock.transform.parent.gameObject);
-            mineManager.DestroyCubes();
+            //mineManager.DestroyCubes();
             colMineDetectorParentScript = collidedBlock.transform.parent.GetChild(1).gameObject.GetComponent<ParentOfMineDetectors>();
             colMineDetectorParentScript.TriggerCheckAllCubes();
         }
