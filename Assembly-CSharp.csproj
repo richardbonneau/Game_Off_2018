@@ -62,6 +62,7 @@
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\MineManager.cs" />
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\NextLevelZone.cs" />
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\ParentOfMineDetectors.cs" />
+     <Compile Include="Assets\_MinesweeperDungeon\Scripts\TerminalManager.cs" />
      <Compile Include="Assets\Combat Systems-Constructor\Demo_Simple_Game\Scripts\Cam.cs" />
      <Compile Include="Assets\Combat Systems-Constructor\Demo_Simple_Game\Scripts\ParticleDel.cs" />
      <Compile Include="Assets\Combat Systems-Constructor\Demo_Simple_Game\Scripts\Shell.cs" />

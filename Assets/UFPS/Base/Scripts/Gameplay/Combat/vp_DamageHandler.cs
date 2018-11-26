@@ -229,11 +229,14 @@ public class vp_DamageHandler : MonoBehaviour {
     public virtual void Damage(vp_DamageInfo damageInfo) {
 
         //  RICHARD:
-        //  REFACTOR: string on tags
-
         if (this.gameObject.CompareTag("Player")) {
+            //  Bug: when on the player, the script doesn't fetch the GameManager Object properly
+            gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
             gameManager.lives -= 1;
-        } else if (this.gameObject.CompareTag("Block") && damageInfo.Type == vp_DamageInfo.DamageType.Pickaxe && !isFlagged) {
+        }
+
+        //  Hitting a Block
+        else if (this.gameObject.CompareTag("Block") && damageInfo.Type == vp_DamageInfo.DamageType.Pickaxe && !isFlagged) {
             ParentOfMineDetectors mineDetectorParentScript = this.transform.parent.GetChild(1).gameObject.GetComponent<ParentOfMineDetectors>();
             mineDetectorParentScript.TriggerCheckAllCubes();
             return;
@@ -241,7 +244,10 @@ public class vp_DamageHandler : MonoBehaviour {
             return;
         } else if (this.gameObject.CompareTag("Block") && damageInfo.Type == vp_DamageInfo.DamageType.Bullet) {
             return;
-        } else if (this.gameObject.CompareTag("Mine") && damageInfo.Type == vp_DamageInfo.DamageType.Pickaxe && !isFlagged) {
+        }
+
+        //  Hitting a Mine
+        else if (this.gameObject.CompareTag("Mine") && damageInfo.Type == vp_DamageInfo.DamageType.Pickaxe && !isFlagged) {
             mineManager.quantityMinesBlown += 1;
             Instantiate(mineExplosionPrefab, this.transform.position, Quaternion.identity);
             this.gameObject.SetActive(false);
@@ -249,7 +255,10 @@ public class vp_DamageHandler : MonoBehaviour {
             return;
         } else if (this.gameObject.CompareTag("Mine") && damageInfo.Type == vp_DamageInfo.DamageType.Pickaxe && isFlagged) {
             return;
-        } else if (this.gameObject.CompareTag("Mine") && damageInfo.Type == vp_DamageInfo.DamageType.Flag) {
+        }
+
+        //  Flagging Blocks and Mines
+        else if (this.gameObject.CompareTag("Mine") && damageInfo.Type == vp_DamageInfo.DamageType.Flag) {
             if (!isFlagged) {
                 mineManager.quantityMinesFlagged += 1;
                 isFlagged = true;
