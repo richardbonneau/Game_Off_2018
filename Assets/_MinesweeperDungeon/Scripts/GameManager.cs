@@ -72,14 +72,11 @@ public class GameManager : MonoBehaviour {
 
         //  Get the current scene to know which color to apply
         scene = SceneManager.GetActiveScene();
-        print(scene.name);
 
         string currentLevel = scene.name.Substring(scene.name.Length - 1);
         int currentLevelInt = int.Parse(currentLevel);
-        print("currentlevel " + currentLevelInt);
 
         foreach (var block in prefabBlocks) {
-            print(block);
             block.transform.GetChild(1).GetComponent<Renderer>().material = neonColor[currentLevelInt - 1];
         }
         foreach (var mine in prefabMineBlocks) {
