@@ -21,10 +21,18 @@ public class MineManager : MonoBehaviour {
     bool minimapOn = false;
 
     void Awake() {
+        print("awake");
         quantityMinesInLevel = GameObject.FindGameObjectsWithTag("Mine").Length;
         remainingMines = GameObject.FindWithTag("UI_Mines").GetComponent<Text>();
-        if (GameObject.FindWithTag("GameManager") == null) GameObject.Instantiate(gameManagerPrefab);
-        if (GameObject.FindWithTag("PlayerHud") == null) GameObject.Instantiate(playerHudPrefab);
+        print(GameObject.FindWithTag("GameManager"));
+        if (GameObject.FindWithTag("GameManager") == null) {
+            print("isnull");
+            print(gameManagerPrefab);
+            GameObject.Instantiate(gameManagerPrefab);
+        }
+        if (GameObject.FindWithTag("PlayerHud") == null) {
+            GameObject.Instantiate(playerHudPrefab);
+        }
     }
     void Start() {
         GameObject.FindWithTag("GameManager").GetComponent<GameManager>().AssignNeonColors();

@@ -27,8 +27,9 @@ using UnityEngine.SceneManagement;
 public class vp_DamageHandler : MonoBehaviour {
 
     //  RICHARD
-    MineManager mineManager;
-    GameManager gameManager;
+    public MineManager mineManager;
+    public GameManager gameManager;
+    bool managersAssigned;
     public bool isFlagged = false;
     Color defaultColor;
 
@@ -167,10 +168,7 @@ public class vp_DamageHandler : MonoBehaviour {
     /// 
     /// </summary>
 
-    void Start() {
-        mineManager = GameObject.FindWithTag("MineManager").GetComponent<MineManager>();
-        gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
-    }
+
     protected virtual void Awake() {
         try {
             if (this.CompareTag("Block") || this.CompareTag("Mine")) {
@@ -189,10 +187,12 @@ public class vp_DamageHandler : MonoBehaviour {
         // component (if necessary) and disable such values on this component
         // NOTE: this check is temporary and will be removed in the future
         CheckForObsoleteParams();
-
         Instances.Add(GetComponent<Collider>(), this);
-
     }
+    void Start() {
+        gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+    }
+
 
 
     /// <summary>
@@ -262,25 +262,33 @@ public class vp_DamageHandler : MonoBehaviour {
             if (!isFlagged) {
                 mineManager.quantityMinesFlagged += 1;
                 isFlagged = true;
-                this.gameObject.transform.GetChild(1).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.yellow);
+                this.transform.GetChild(0).gameObject.SetActive(false);
+                this.transform.GetChild(1).gameObject.SetActive(false);
+                this.transform.parent.GetChild(2).gameObject.SetActive(true);
                 return;
             } else {
                 mineManager.quantityMinesFlagged -= 1;
                 isFlagged = false;
-                //  Get original color in a var somewhere
-                this.gameObject.transform.GetChild(1).GetComponent<Renderer>().material.SetColor("_EmissionColor", defaultColor);
+                this.transform.GetChild(0).gameObject.SetActive(true);
+                this.transform.GetChild(1).gameObject.SetActive(true);
+                this.transform.parent.GetChild(2).gameObject.SetActive(false);
                 return;
             }
         } else if (this.gameObject.tag == "Block" && damageInfo.Type == vp_DamageInfo.DamageType.Flag) {
             if (!isFlagged) {
                 mineManager.quantityMinesFalselyFlagged += 1;
                 isFlagged = true;
-                this.gameObject.transform.GetChild(1).GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.yellow);
+                this.transform.GetChild(0).gameObject.SetActive(false);
+                this.transform.GetChild(1).gameObject.SetActive(false);
+                this.transform.parent.GetChild(3).gameObject.SetActive(true);
                 return;
             } else {
                 mineManager.quantityMinesFalselyFlagged -= 1;
                 isFlagged = false;
-                this.gameObject.transform.GetChild(1).GetComponent<Renderer>().material.SetColor("_EmissionColor", defaultColor);
+                this.transform.GetChild(0).gameObject.SetActive(true);
+                this.transform.GetChild(1).gameObject.SetActive(true);
+                this.transform.parent.GetChild(3).gameObject.SetActive(false);
+
                 return;
             }
         }
