@@ -63,9 +63,10 @@
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\NextLevelZone.cs" />
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\ParentOfMineDetectors.cs" />
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\TerminalManager.cs" />
+     <Compile Include="Assets\_MinesweeperDungeon\Scripts\UI\NowInGame.cs" />
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\UI\QuitGame.cs" />
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\UI\Resume.cs" />
-     <Compile Include="Assets\_MinesweeperDungeon\Scripts\UI\ReturnMainMenu.cs" />
+     <Compile Include="Assets\_MinesweeperDungeon\Scripts\UI\ReturnToMenu.cs" />
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\UI\StartGame.cs" />
      <Compile Include="Assets\MK\MKXRayFree\Demo\Code\AutoEnableObjects.cs" />
      <Compile Include="Assets\MK\MKXRayFree\Demo\Code\InfoTextDisable.cs" />

@@ -1,16 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Resume : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public void ResumeTheGame() {
+        print(GameObject.FindWithTag("GameManager"));
+        GameObject.FindWithTag("GameManager").GetComponent<GameManager>().isMenuOpen = false;
+    }
 }

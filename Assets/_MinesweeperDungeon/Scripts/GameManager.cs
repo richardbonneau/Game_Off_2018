@@ -22,7 +22,10 @@ public class GameManager : MonoBehaviour {
     AsyncOperation asyncLoad;
 
     GameObject loadingScreenObj;
+    GameObject gameMenu;
+    public bool isMenuOpen = false;
     Slider slider;
+    public bool isMainMenu = false;
 
 
     void Awake() {
@@ -32,11 +35,45 @@ public class GameManager : MonoBehaviour {
     }
     void Start() {
         //loadingScreenObj = GameObject.FindWithTag("UI_LoadingScreen");
-        amountLivesText = GameObject.FindWithTag("UI_Lives").GetComponent<Text>();
+
     }
 
     void Update() {
+        print("update");
+        if (amountLivesText == null) amountLivesText = GameObject.FindWithTag("UI_Lives").GetComponent<Text>();
         amountLivesText.text = lives.ToString();
+
+        if (Input.GetKeyDown(KeyCode.C)) {
+            gameMenu = GameObject.FindWithTag("PlayerHud").transform.GetChild(1).gameObject;
+            print("gameMenu.activeSelf " + gameMenu.activeSelf);
+            if (gameMenu.activeSelf) {
+                isMenuOpen = false;
+            } else {
+                isMenuOpen = true;
+            }
+        }
+
+
+        if (isMainMenu) {
+            print("isMainMenu");
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        } else if (isMenuOpen) {
+            print("isMenuOpen");
+            if (gameMenu == null) gameMenu = GameObject.FindWithTag("PlayerHud").transform.GetChild(1).gameObject;
+            gameMenu.SetActive(true);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0.00001f;
+        } else if (!isMenuOpen) {
+            print("isMenuOpen not");
+            if (gameMenu == null) gameMenu = GameObject.FindWithTag("PlayerHud").transform.GetChild(1).gameObject;
+            gameMenu.SetActive(false);
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+
+            Time.timeScale = 1;
+        }
     }
 
     IEnumerator MenuToFirstLevel(string lvl, Vector3 heroPos) {
@@ -67,7 +104,9 @@ public class GameManager : MonoBehaviour {
     }
 
     IEnumerator GoToNextScene(string lvl, Vector3 heroPos) {
-        loadingScreenObj = GameObject.FindWithTag("UI_LoadingScreen");
+        loadingScreenObj = GameObject.FindWithTag("PlayerHud").transform.GetChild(0).gameObject;
+        slider = loadingScreenObj.transform.GetChild(1).GetComponent<Slider>();
+
         loadingScreenObj.SetActive(true);
         asyncLoad = SceneManager.LoadSceneAsync("Level_" + lvl, LoadSceneMode.Single);
         asyncLoad.allowSceneActivation = false;
@@ -92,13 +131,12 @@ public class GameManager : MonoBehaviour {
         else if (scene.name == "level_1") StartCoroutine(GoToNextScene("2", new Vector3(21, 0, 13)));
         else if (scene.name == "level_2") StartCoroutine(GoToNextScene("3", new Vector3(21, 0, 13)));
         else if (scene.name == "level_3") StartCoroutine(GoToNextScene("4", new Vector3(21, 0, 13)));
-        // else if (SceneManager.GetActiveScene().name == "Level_4") StartCoroutine(GoToNextScene());
-        // else if (SceneManager.GetActiveScene().name == "Level_5") StartCoroutine(GoToNextScene());
-        // else if (SceneManager.GetActiveScene().name == "Level_6") StartCoroutine(GoToNextScene());
-        // else if (SceneManager.GetActiveScene().name == "Level_7") StartCoroutine(GoToNextScene());
-        // else if (SceneManager.GetActiveScene().name == "Level_8") StartCoroutine(GoToNextScene());
-        // else if (SceneManager.GetActiveScene().name == "Level_9") StartCoroutine(GoToNextScene());
-        // else if (SceneManager.GetActiveScene().name == "Level_10") StartCoroutine(GoToNextScene());
+        else if (scene.name == "Level_4") StartCoroutine(GoToNextScene("5", new Vector3(21, 0, 13)));
+        else if (scene.name == "Level_5") StartCoroutine(GoToNextScene("6", new Vector3(21, 0, 13)));
+        else if (scene.name == "Level_6") StartCoroutine(GoToNextScene("7", new Vector3(21, 0, 13)));
+        else if (scene.name == "Level_7") StartCoroutine(GoToNextScene("8", new Vector3(21, 0, 13)));
+        else if (scene.name == "Level_8") StartCoroutine(GoToNextScene("9", new Vector3(21, 0, 13)));
+        else if (scene.name == "Level_9") StartCoroutine(GoToNextScene("10", new Vector3(21, 0, 13)));
     }
 
     public void AssignNeonColors() {
@@ -113,10 +151,10 @@ public class GameManager : MonoBehaviour {
         int currentLevelInt = int.Parse(currentLevel);
 
         foreach (var block in prefabBlocks) {
-            block.transform.GetChild(1).GetComponent<Renderer>().material = neonColor[currentLevelInt - 1];
+            block.transform.GetChild(1).GetComponent<Renderer>().material = neonColor[currentLevelInt - 1 + 1];
         }
         foreach (var mine in prefabMineBlocks) {
-            mine.transform.GetChild(1).GetComponent<Renderer>().material = neonColor[currentLevelInt - 1];
+            mine.transform.GetChild(1).GetComponent<Renderer>().material = neonColor[currentLevelInt - 1 + 1];
         }
     }
 }

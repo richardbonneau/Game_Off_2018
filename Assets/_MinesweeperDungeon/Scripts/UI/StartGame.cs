@@ -6,7 +6,13 @@ using UnityEngine.EventSystems;
 
 public class StartGame : MonoBehaviour {
 
-    // Use this for initialization
+    GameManager gameManager;
+
+    void Update() {
+        if (gameManager == null) gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+        if (gameManager.isMainMenu == false) gameManager.isMainMenu = true;
+    }
+
     public void GameStart() {
         print("in game start");
         GameObject.FindWithTag("GameManager").GetComponent<GameManager>().LoadNextLevel();

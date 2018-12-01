@@ -14,7 +14,7 @@ public class MineManager : MonoBehaviour {
 
     public int quantityMinesInLevel = 0;
     public int quantityMinesFlagged = 0;
-    public int quantityMinesFalselyFlagged = 0;
+    public int quantityMinesFalselyFlagged;
     public int quantityMinesBlown = 0;
     Text remainingMines;
 
@@ -33,6 +33,13 @@ public class MineManager : MonoBehaviour {
         } catch (NullReferenceException ex) {
             GameObject.Instantiate(gameManagerPrefab);
         }
+        try {
+            if (GameObject.FindWithTag("PlayerHud") == null) {
+                GameObject.Instantiate(playerHudPrefab);
+            }
+        } catch (NullReferenceException ex) {
+            GameObject.Instantiate(playerHudPrefab);
+        }
         GameObject.FindWithTag("GameManager").GetComponent<GameManager>().AssignNeonColors();
         quantityMinesInLevel = GameObject.FindGameObjectsWithTag("Mine").Length;
         remainingMines = GameObject.FindWithTag("UI_Mines").GetComponent<Text>();
@@ -40,12 +47,7 @@ public class MineManager : MonoBehaviour {
 
     void Update() {
         //  UI
-        print("quantityMinesInLevel " + quantityMinesInLevel);
-        print("quantityMinesBlown " + quantityMinesBlown);
-        print("quantityMinesFlagged " + quantityMinesFlagged);
-        print("quantityMinesFalselyFlagged " + quantityMinesFalselyFlagged);
         remainingMines.text = (quantityMinesInLevel - quantityMinesBlown - quantityMinesFlagged - quantityMinesFalselyFlagged).ToString();
-
 
         if (blocksToDestroy.Count > 0) DestroyCubes();
 
@@ -66,6 +68,7 @@ public class MineManager : MonoBehaviour {
         foreach (var block in blocksToDestroy) {
             if (block.transform.GetChild(0).GetComponent<vp_DamageHandler>().isFlagged == true) { quantityMinesFalselyFlagged -= 1; }
             block.transform.GetChild(0).gameObject.SetActive(false);
+            block.transform.GetChild(3).gameObject.SetActive(false);
         }
         blocksToDestroy.Clear();
     }

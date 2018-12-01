@@ -193,7 +193,7 @@ public class vp_DamageHandler : MonoBehaviour {
 
     void Start() {
         mineManager = GameObject.FindWithTag("MineManager").GetComponent<MineManager>();
-        gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+        //gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
     }
 
 
@@ -294,7 +294,7 @@ public class vp_DamageHandler : MonoBehaviour {
 
                 return;
             }
-        }
+        } else return;
 
         if (!enabled)
             return;
