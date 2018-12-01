@@ -21,11 +21,17 @@ public class GameManager : MonoBehaviour {
 
     AsyncOperation asyncLoad;
 
-    public GameObject loadingScreenObj;
-    public Slider slider;
+    GameObject loadingScreenObj;
+    Slider slider;
 
 
     void Awake() {
+
+
+
+    }
+    void Start() {
+        //loadingScreenObj = GameObject.FindWithTag("UI_LoadingScreen");
         amountLivesText = GameObject.FindWithTag("UI_Lives").GetComponent<Text>();
     }
 
@@ -33,7 +39,35 @@ public class GameManager : MonoBehaviour {
         amountLivesText.text = lives.ToString();
     }
 
+    IEnumerator MenuToFirstLevel(string lvl, Vector3 heroPos) {
+        loadingScreenObj = GameObject.FindWithTag("UI_LoadingScreen");
+        slider = loadingScreenObj.transform.GetChild(1).GetComponent<Slider>();
+
+        loadingScreenObj.transform.GetChild(0).gameObject.SetActive(true);
+        loadingScreenObj.transform.GetChild(1).gameObject.SetActive(true);
+
+        loadingScreenObj.transform.parent.transform.GetChild(0).gameObject.SetActive(false);
+        loadingScreenObj.transform.parent.transform.GetChild(1).gameObject.SetActive(false);
+        loadingScreenObj.transform.parent.transform.GetChild(2).gameObject.SetActive(false);
+
+        asyncLoad = SceneManager.LoadSceneAsync("Level_" + lvl, LoadSceneMode.Single);
+        asyncLoad.allowSceneActivation = false;
+        while (!asyncLoad.isDone) {
+
+            slider.value = (asyncLoad.progress);
+            if (asyncLoad.progress == 0.9f) {
+                slider.value = 1f;
+                asyncLoad.allowSceneActivation = true;
+                hero = GameObject.FindWithTag("Player").gameObject;
+                hero.transform.position = heroPos;
+                loadingScreenObj.SetActive(false);
+            }
+            yield return null;
+        }
+    }
+
     IEnumerator GoToNextScene(string lvl, Vector3 heroPos) {
+        loadingScreenObj = GameObject.FindWithTag("UI_LoadingScreen");
         loadingScreenObj.SetActive(true);
         asyncLoad = SceneManager.LoadSceneAsync("Level_" + lvl, LoadSceneMode.Single);
         asyncLoad.allowSceneActivation = false;
@@ -43,7 +77,7 @@ public class GameManager : MonoBehaviour {
             if (asyncLoad.progress == 0.9f) {
                 slider.value = 1f;
                 asyncLoad.allowSceneActivation = true;
-                hero = GameObject.FindWithTag("Player");
+                hero = GameObject.FindWithTag("Player").gameObject;
                 hero.transform.position = heroPos;
                 loadingScreenObj.SetActive(false);
             }
@@ -52,8 +86,10 @@ public class GameManager : MonoBehaviour {
     }
 
     public void LoadNextLevel() {
+        print("in load next level");
         scene = SceneManager.GetActiveScene();
-        if (scene.name == "level_1") StartCoroutine(GoToNextScene("2", new Vector3(21, 0, 13)));
+        if (scene.name == "mainmenu") StartCoroutine(MenuToFirstLevel("1", new Vector3(21, 0, 13)));
+        else if (scene.name == "level_1") StartCoroutine(GoToNextScene("2", new Vector3(21, 0, 13)));
         else if (scene.name == "level_2") StartCoroutine(GoToNextScene("3", new Vector3(21, 0, 13)));
         else if (scene.name == "level_3") StartCoroutine(GoToNextScene("4", new Vector3(21, 0, 13)));
         // else if (SceneManager.GetActiveScene().name == "Level_4") StartCoroutine(GoToNextScene());

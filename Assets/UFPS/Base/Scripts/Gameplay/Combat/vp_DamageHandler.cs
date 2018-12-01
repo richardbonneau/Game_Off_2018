@@ -13,6 +13,7 @@
 
 using UnityEngine;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 
 #if UNITY_EDITOR
@@ -27,8 +28,8 @@ using UnityEngine.SceneManagement;
 public class vp_DamageHandler : MonoBehaviour {
 
     //  RICHARD
-    public MineManager mineManager;
-    public GameManager gameManager;
+    MineManager mineManager;
+    GameManager gameManager;
     bool managersAssigned;
     public bool isFlagged = false;
     Color defaultColor;
@@ -189,7 +190,9 @@ public class vp_DamageHandler : MonoBehaviour {
         CheckForObsoleteParams();
         Instances.Add(GetComponent<Collider>(), this);
     }
+
     void Start() {
+        mineManager = GameObject.FindWithTag("MineManager").GetComponent<MineManager>();
         gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
     }
 
@@ -199,7 +202,6 @@ public class vp_DamageHandler : MonoBehaviour {
     /// 
     /// </summary>
     protected virtual void OnEnable() {
-
 #if UNITY_5_4_OR_NEWER
         SceneManager.sceneLoaded += OnLevelLoad;
 #endif
@@ -275,6 +277,7 @@ public class vp_DamageHandler : MonoBehaviour {
                 return;
             }
         } else if (this.gameObject.tag == "Block" && damageInfo.Type == vp_DamageInfo.DamageType.Flag) {
+            print("hit and flagged");
             if (!isFlagged) {
                 mineManager.quantityMinesFalselyFlagged += 1;
                 isFlagged = true;
