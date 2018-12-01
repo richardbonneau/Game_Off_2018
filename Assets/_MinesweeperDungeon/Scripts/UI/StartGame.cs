@@ -7,14 +7,20 @@ using UnityEngine.EventSystems;
 public class StartGame : MonoBehaviour {
 
     GameManager gameManager;
+    void Start() {
+        Time.timeScale = 1;
 
+    }
     void Update() {
+        Destroy(GameObject.FindGameObjectsWithTag("GameManager")[1]);
+
         if (gameManager == null) gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
-        if (gameManager.isMainMenu == false) gameManager.isMainMenu = true;
+        gameManager.isMainMenu = true;
+        gameManager.isMenuOpen = false;
     }
 
     public void GameStart() {
-        print("in game start");
+
         GameObject.FindWithTag("GameManager").GetComponent<GameManager>().LoadNextLevel();
     }
 }

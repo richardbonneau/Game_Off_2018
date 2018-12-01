@@ -39,13 +39,12 @@ public class GameManager : MonoBehaviour {
     }
 
     void Update() {
-        print("update");
         if (amountLivesText == null) amountLivesText = GameObject.FindWithTag("UI_Lives").GetComponent<Text>();
         amountLivesText.text = lives.ToString();
 
-        if (Input.GetKeyDown(KeyCode.C)) {
+
+        if (Input.GetKeyDown(KeyCode.Escape)) {
             gameMenu = GameObject.FindWithTag("PlayerHud").transform.GetChild(1).gameObject;
-            print("gameMenu.activeSelf " + gameMenu.activeSelf);
             if (gameMenu.activeSelf) {
                 isMenuOpen = false;
             } else {
@@ -53,24 +52,40 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-
         if (isMainMenu) {
-            print("isMainMenu");
+            isMenuOpen = false;
+
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+            vp_Utility.LockCursor = false;
+            lives = 5;
+            Time.timeScale = 1;
+        } else if (lives <= 0) {
+            GameObject.FindWithTag("PlayerHud").transform.GetChild(2).gameObject.SetActive(true);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            if (hero == null) hero = GameObject.FindWithTag("Player").gameObject;
+            hero.GetComponent<vp_FPInput>().MouseCursorForced = true;
+            vp_Utility.LockCursor = false;
+            Time.timeScale = 0.0001f;
         } else if (isMenuOpen) {
-            print("isMenuOpen");
+            if (hero == null) hero = GameObject.FindWithTag("Player").gameObject;
+            hero.GetComponent<vp_FPInput>().MouseCursorForced = true;
+            vp_Utility.LockCursor = false;
             if (gameMenu == null) gameMenu = GameObject.FindWithTag("PlayerHud").transform.GetChild(1).gameObject;
             gameMenu.SetActive(true);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+            vp_Utility.LockCursor = false;
             Time.timeScale = 0.00001f;
-        } else if (!isMenuOpen) {
-            print("isMenuOpen not");
+        } else if (!isMenuOpen && SceneManager.GetActiveScene().name != "mainmenu") {
+            if (hero == null) hero = GameObject.FindWithTag("Player").gameObject;
+            hero.GetComponent<vp_FPInput>().MouseCursorForced = false;
             if (gameMenu == null) gameMenu = GameObject.FindWithTag("PlayerHud").transform.GetChild(1).gameObject;
             gameMenu.SetActive(false);
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+            vp_Utility.LockCursor = true;
 
             Time.timeScale = 1;
         }
@@ -125,18 +140,17 @@ public class GameManager : MonoBehaviour {
     }
 
     public void LoadNextLevel() {
-        print("in load next level");
         scene = SceneManager.GetActiveScene();
         if (scene.name == "mainmenu") StartCoroutine(MenuToFirstLevel("1", new Vector3(21, 0, 13)));
         else if (scene.name == "level_1") StartCoroutine(GoToNextScene("2", new Vector3(21, 0, 13)));
         else if (scene.name == "level_2") StartCoroutine(GoToNextScene("3", new Vector3(21, 0, 13)));
         else if (scene.name == "level_3") StartCoroutine(GoToNextScene("4", new Vector3(21, 0, 13)));
-        else if (scene.name == "Level_4") StartCoroutine(GoToNextScene("5", new Vector3(21, 0, 13)));
-        else if (scene.name == "Level_5") StartCoroutine(GoToNextScene("6", new Vector3(21, 0, 13)));
-        else if (scene.name == "Level_6") StartCoroutine(GoToNextScene("7", new Vector3(21, 0, 13)));
-        else if (scene.name == "Level_7") StartCoroutine(GoToNextScene("8", new Vector3(21, 0, 13)));
-        else if (scene.name == "Level_8") StartCoroutine(GoToNextScene("9", new Vector3(21, 0, 13)));
-        else if (scene.name == "Level_9") StartCoroutine(GoToNextScene("10", new Vector3(21, 0, 13)));
+        else if (scene.name == "level_4") StartCoroutine(GoToNextScene("5", new Vector3(21, 0, 13)));
+        else if (scene.name == "level_5") StartCoroutine(GoToNextScene("6", new Vector3(21, 0, 13)));
+        else if (scene.name == "level_6") StartCoroutine(GoToNextScene("7", new Vector3(21, 0, 13)));
+        else if (scene.name == "level_7") StartCoroutine(GoToNextScene("8", new Vector3(21, 0, 13)));
+        else if (scene.name == "level_8") StartCoroutine(GoToNextScene("9", new Vector3(21, 0, 13)));
+        else if (scene.name == "level_9") StartCoroutine(GoToNextScene("10", new Vector3(21, 0, 13)));
     }
 
     public void AssignNeonColors() {
@@ -156,5 +170,9 @@ public class GameManager : MonoBehaviour {
         foreach (var mine in prefabMineBlocks) {
             mine.transform.GetChild(1).GetComponent<Renderer>().material = neonColor[currentLevelInt - 1 + 1];
         }
+    }
+
+    void GameOver() {
+
     }
 }

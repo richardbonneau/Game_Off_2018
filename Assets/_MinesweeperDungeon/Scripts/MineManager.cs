@@ -26,6 +26,7 @@ public class MineManager : MonoBehaviour {
 
     }
     void Start() {
+        Time.timeScale = 1;
         try {
             if (GameObject.FindWithTag("GameManager") == null) {
                 GameObject.Instantiate(gameManagerPrefab);
