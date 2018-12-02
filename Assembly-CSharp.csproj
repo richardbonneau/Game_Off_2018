@@ -54,8 +54,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\DontDestroy.cs" />
-     <Compile Include="Assets\_MinesweeperDungeon\Scripts\EnemyMovement.cs" />
-     <Compile Include="Assets\_MinesweeperDungeon\Scripts\FlagPlant.cs" />
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\GameManager.cs" />
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\HologramCube.cs" />
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\MineDetector.cs" />
@@ -63,7 +61,6 @@
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\NextLevelZone.cs" />
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\ParentOfMineDetectors.cs" />
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\Terminal.cs" />
-     <Compile Include="Assets\_MinesweeperDungeon\Scripts\TerminalManager.cs" />
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\UI\NowInGame.cs" />
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\UI\QuitGame.cs" />
      <Compile Include="Assets\_MinesweeperDungeon\Scripts\UI\Resume.cs" />
@@ -140,9 +137,6 @@
      <Compile Include="Assets\RetroAesthetics\Scripts\SceneField.cs" />
      <Compile Include="Assets\RetroAesthetics\Scripts\UVScroller.cs" />
      <Compile Include="Assets\RetroAesthetics\Shaders\Post-processing\RetroCameraEffect.cs" />
-     <Compile Include="Assets\SMC Pack 1\Demo\DemoAssets\V_SMC_Camera.cs" />
-     <Compile Include="Assets\SMC Pack 1\Demo\DemoAssets\V_SMC_Handler.cs" />
-     <Compile Include="Assets\SMC Pack 1\Demo\DemoAssets\V_Text.cs" />
      <Compile Include="Assets\Teleportation Pad\CustomTeleporter.cs" />
      <Compile Include="Assets\UFPS\Base\Scripts\Core\Attributes\vp_FloatFieldAttribute.cs" />
      <Compile Include="Assets\UFPS\Base\Scripts\Core\Attributes\vp_HelpBoxAttribute.cs" />
