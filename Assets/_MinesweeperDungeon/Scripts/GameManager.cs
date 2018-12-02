@@ -18,9 +18,7 @@ public class GameManager : MonoBehaviour {
 
     public int lives = 5;
     Text amountLivesText;
-
     AsyncOperation asyncLoad;
-
     GameObject loadingScreenObj;
     GameObject gameMenu;
     public bool isMenuOpen = false;
@@ -28,11 +26,6 @@ public class GameManager : MonoBehaviour {
     public bool isMainMenu = false;
 
 
-    void Awake() {
-
-
-
-    }
     void Start() {
         //loadingScreenObj = GameObject.FindWithTag("UI_LoadingScreen");
 
