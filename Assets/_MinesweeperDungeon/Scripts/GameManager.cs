@@ -165,10 +165,10 @@ public class GameManager : MonoBehaviour {
         int currentLevelInt = int.Parse(currentLevel);
 
         foreach (var block in prefabBlocks) {
-            block.transform.GetChild(1).GetComponent<Renderer>().material = neonColor[currentLevelInt - 1 + 1];
+            block.transform.GetChild(1).GetComponent<Renderer>().material = neonColor[currentLevelInt - 1];
         }
         foreach (var mine in prefabMineBlocks) {
-            mine.transform.GetChild(1).GetComponent<Renderer>().material = neonColor[currentLevelInt - 1 + 1];
+            mine.transform.GetChild(1).GetComponent<Renderer>().material = neonColor[currentLevelInt - 1];
         }
     }
 
