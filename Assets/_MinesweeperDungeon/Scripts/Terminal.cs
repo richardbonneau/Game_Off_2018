@@ -18,7 +18,7 @@ public class Terminal : MonoBehaviour {
     }
     void Update() {
         if (Input.GetKeyDown(KeyCode.E) && isPlayerNear) {
-            finalSolution = GameObject.FindWithTag("PlayerHud").transform.GetChild(3).GetChild(0).gameObject;
+            finalSolution = GameObject.FindWithTag("UI_SubmitSolution").transform.GetChild(0).gameObject;
             if (finalSolution.activeSelf) {
                 finalSolutionOpen = false;
             } else {

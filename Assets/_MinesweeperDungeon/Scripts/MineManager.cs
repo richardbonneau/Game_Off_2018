@@ -26,7 +26,6 @@ public class MineManager : MonoBehaviour {
 
     }
     void Start() {
-        print("start");
         Time.timeScale = 1;
         try {
             if (GameObject.FindWithTag("GameManager") == null) {
@@ -42,11 +41,15 @@ public class MineManager : MonoBehaviour {
         } catch (NullReferenceException ex) {
             GameObject.Instantiate(playerHudPrefab);
         }
-        print("after catch");
+
         GameObject.FindWithTag("GameManager").GetComponent<GameManager>().AssignNeonColors();
-        print(GameObject.FindGameObjectsWithTag("Mine"));
+
+        //  ui
         quantityMinesInLevel = GameObject.FindGameObjectsWithTag("Mine").Length;
         remainingMines = GameObject.FindWithTag("UI_Mines").GetComponent<Text>();
+        if (SceneManager.GetActiveScene().name == "level_1") GameObject.FindWithTag("UI_Tutorial").transform.GetChild(0).gameObject.SetActive(true);
+
+
     }
 
     void Update() {

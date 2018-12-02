@@ -35,9 +35,8 @@ public class GameManager : MonoBehaviour {
         if (amountLivesText == null) amountLivesText = GameObject.FindWithTag("UI_Lives").GetComponent<Text>();
         amountLivesText.text = lives.ToString();
 
-
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            gameMenu = GameObject.FindWithTag("PlayerHud").transform.GetChild(1).gameObject;
+            gameMenu = GameObject.FindWithTag("UI_InGameMenu").transform.GetChild(0).gameObject;
             if (gameMenu.activeSelf) {
                 isMenuOpen = false;
             } else {
@@ -54,7 +53,7 @@ public class GameManager : MonoBehaviour {
             lives = 5;
             Time.timeScale = 1;
         } else if (lives <= 0) {
-            GameObject.FindWithTag("PlayerHud").transform.GetChild(2).gameObject.SetActive(true);
+            GameObject.FindWithTag("UI_GameOver").transform.GetChild(0).gameObject.SetActive(true);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             if (hero == null) hero = GameObject.FindWithTag("Player").gameObject;
@@ -65,7 +64,7 @@ public class GameManager : MonoBehaviour {
             if (hero == null) hero = GameObject.FindWithTag("Player").gameObject;
             hero.GetComponent<vp_FPInput>().MouseCursorForced = true;
             vp_Utility.LockCursor = false;
-            if (gameMenu == null) gameMenu = GameObject.FindWithTag("PlayerHud").transform.GetChild(1).gameObject;
+            if (gameMenu == null) gameMenu = GameObject.FindWithTag("UI_InGameMenu").transform.GetChild(0).gameObject;
             gameMenu.SetActive(true);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
@@ -74,7 +73,7 @@ public class GameManager : MonoBehaviour {
         } else if (!isMenuOpen && SceneManager.GetActiveScene().name != "mainmenu") {
             if (hero == null) hero = GameObject.FindWithTag("Player").gameObject;
             hero.GetComponent<vp_FPInput>().MouseCursorForced = false;
-            if (gameMenu == null) gameMenu = GameObject.FindWithTag("PlayerHud").transform.GetChild(1).gameObject;
+            if (gameMenu == null) gameMenu = GameObject.FindWithTag("UI_InGameMenu").transform.GetChild(0).gameObject;
             gameMenu.SetActive(false);
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
@@ -112,7 +111,7 @@ public class GameManager : MonoBehaviour {
     }
 
     IEnumerator GoToNextScene(string lvl, Vector3 heroPos) {
-        loadingScreenObj = GameObject.FindWithTag("PlayerHud").transform.GetChild(0).gameObject;
+        loadingScreenObj = GameObject.FindWithTag("UI_LoadingScreen").transform.GetChild(0).gameObject;
         slider = loadingScreenObj.transform.GetChild(1).GetComponent<Slider>();
 
         loadingScreenObj.SetActive(true);
