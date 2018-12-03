@@ -12,7 +12,14 @@ public class StartGame : MonoBehaviour {
 
     }
     void Update() {
-        Destroy(GameObject.FindGameObjectsWithTag("GameManager")[1]);
+        try {
+            Destroy(GameObject.FindGameObjectsWithTag("GameManager")[1]);
+            print("we destroyed a game manager");
+        } catch {
+            print("there is only one game manager, all good.");
+        }
+
+
 
         if (gameManager == null) gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
         gameManager.isMainMenu = true;

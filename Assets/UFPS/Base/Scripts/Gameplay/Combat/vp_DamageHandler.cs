@@ -241,6 +241,7 @@ public class vp_DamageHandler : MonoBehaviour {
         else if (this.gameObject.CompareTag("Block") && damageInfo.Type == vp_DamageInfo.DamageType.Pickaxe && !isFlagged) {
             ParentOfMineDetectors mineDetectorParentScript = this.transform.parent.GetChild(1).gameObject.GetComponent<ParentOfMineDetectors>();
             mineDetectorParentScript.TriggerCheckAllCubes();
+            mineManager.quantityBlocksDestroyed += 1;
             return;
         } else if (this.gameObject.CompareTag("Block") && damageInfo.Type == vp_DamageInfo.DamageType.Pickaxe && isFlagged) {
             return;

@@ -26,7 +26,6 @@ public class ParentOfMineDetectors : MonoBehaviour {
         if (!hasbeenTriggered) {
             hasbeenTriggered = true;
             GameObject parentCube = this.transform.parent.GetChild(0).gameObject;
-            //print(parentCube);
             if (numberOfMines == 0) {
                 this.transform.parent.GetChild(2).gameObject.SetActive(false);
                 this.transform.parent.GetChild(3).gameObject.SetActive(false);
@@ -36,7 +35,6 @@ public class ParentOfMineDetectors : MonoBehaviour {
                     i.GetComponent<MineDetector>().DeactivateSurroundingCubes();
                 }
             } else {
-                //parentCube.transform.GetChild(3).gameObject.SetActive(false);
                 parentCube.SetActive(false);
             }
         }
